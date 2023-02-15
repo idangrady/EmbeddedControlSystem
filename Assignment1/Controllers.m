@@ -20,7 +20,7 @@ B = [0 ; 0 ;km/j1 ;0];
 C = [1 0 0 0];
 
 sys_cont = ss(A, B, C, 0);
-h =0.005; 
+h =0.0025; 
 sys_disc = c2d(sys_cont, h); % the output can be changed
 phi = sys_disc.a;
 
@@ -28,17 +28,17 @@ Gamma = sys_disc.b;
 gamma = [Gamma phi*Gamma phi^2*Gamma phi^3*Gamma];
 det(gamma)
 
-alphas = [0.1 0.1 0.1 0.1];
+alphas = [0.07 0.001 0.7 0.001];
 K = -acker(phi,Gamma,alphas);
 % forward gain
 F = 1/(C*inv(eye(4)-phi-Gamma*K)*Gamma);
 
 r = 1; % reference
 
-x1(2) = 10.0; x1(1) = 10.0; 
-x2(1) = 11.0; x2(2) = 11.0; 
-x3(2)=20.0; x3(1) = 20.0;
-x2(1)=20.0; x4(2) = 20.0;
+x1(2) = 5.0; x1(1) = 5.0; 
+x2(1) = 5.0; x2(2) = 5.0; 
+x3(2)=5.0; x3(1) = 5.0;
+x2(1)=5.0; x4(2) = 5.0;
 
 tol = 1e-3; % set a tolerance for convergence
 error = Inf; % initialize error to a large value
