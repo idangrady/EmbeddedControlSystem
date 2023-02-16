@@ -83,8 +83,11 @@ for i=2:length(x_)/h
 
     x_ = A_augment*x_ + B_augment*u;
     output_x(i+1,:) = x_';
-
-
+    
+    %check constraints
+    checkConditions(x_, u,[3,4], 50, 1);
+    
+    %Stores the input and time
     input(i+1) = u;
     time(i+1) = time(i) + h;
     
@@ -100,16 +103,6 @@ for i=2:length(x_)/h
     end
 end
 
-for i=2:length(x_)/h
-if(output(:,4) > 50)
-   disp('state 4 constraint failed')
-   break
-end
-if (output(:,3) > 50)
-    disp('state 3 constraint failed')
-    break
-end
-end
 
 plot(time(1:i), y, 'b');
 hold

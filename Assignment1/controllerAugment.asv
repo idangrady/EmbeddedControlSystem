@@ -39,14 +39,14 @@ C_augment = [C 0];
 
 
 Q = eye(5);
-Q(3,3) =0.6;
-Q(2,1) =0.4;
-Q(5,1) =1;
-Q(1,2) =1;
-Q(4,4) =0.4;
+Q(3,3) =0.07;
+Q(3,1) =0;
+Q(5,1) =0;
+Q(1,2) =0;
+Q(4,4) =0.1;
 
 
-[X, L, G] = dare(A_augment,B_augment, Q, 0.001);
+[X, L, G] = dare(A_augment,B_augment, Q, 0.5);
 
 gamma = [B_augment A_augment*B_augment A_augment^2*B_augment A_augment^3*B_augment A_augment^4*B_augment];
 if (det(gamma)== 0)
@@ -80,9 +80,18 @@ for i=2:length(x_)/h
     y(i) = C_augment*x_;
     u  =K*[x_] +F*r;
    
+
     x_ = A_augment*x_ + B_augment*u;
     output_x(i+1,:) = x_';
 
+    if(x_(3)>50 | x_(4)>50)
+        if((x_(3)>50)
+        end
+        if(x_(4)>50)
+        end
+        
+    break
+    end
     input(i+1) = u;
     time(i+1) = time(i) + h;
     
@@ -91,12 +100,25 @@ for i=2:length(x_)/h
     if error < tol && t_converge == 0 % check if converged
         t_converge = time(i+1); % record the time of convergence
     end
-    
+
     % break the loop if converged
     if t_converge > 0
         break
     end
 end
+
+%{
+for i=2:length(x_)/h
+if(output(:,4) > 50)
+   disp('state 4 constraint failed')
+   break
+end
+if (output(:,3) > 50)
+    disp('state 3 constraint failed')
+    break
+end
+end
+%}
 
 
 plot(time(1:i), y, 'b');
@@ -109,6 +131,8 @@ xlabel('Time (sec)');
 ylabel('x1');
 ylim([0, 2*r]); % set y-axis limit
 
+
+disp('Finished')
 
 
 
