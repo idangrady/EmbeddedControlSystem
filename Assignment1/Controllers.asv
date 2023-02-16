@@ -21,6 +21,9 @@ B = [0 ; 0 ;km/j1 ;0];
 C = [1 0 0 0];
 
 
+R = eye(5);
+R()
+
 
 sys_cont = ss(A, B, C, 0);
 sys_disc = c2d(sys_cont, h); % the output can be changed
