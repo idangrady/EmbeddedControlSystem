@@ -1,4 +1,5 @@
 
+% to meet the constraints for the input and states
 
 function [bool] = checkConditions(x_, u,states, cond_state, cond_input)
     bool = false;
