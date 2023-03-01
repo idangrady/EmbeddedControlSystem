@@ -33,6 +33,8 @@ inv_A = inv(A_disc);
 r_1_t = inv_A*(A_disc - expm(A*(h-delay)))*B; % compute the r1 for the augmented matrix
 r_1_0 = inv_A*(expm(A*(h-delay)) - 1)*B; % compute the r1 for the augmented matrix
 
+
+
 %augment the matrix including both old input and state.
 A_augment = [A_disc r_1_t ;zeros(1,5)]; % should be (4+1)x (4+1)
 B_augment = [r_1_0;1];  % should be (4+1, 1)
@@ -58,7 +60,7 @@ end
 
 %place poles
 alphas = [0.6 0.6 0.1 0.1 0.2];
-%K = -acker(A_augment,B_augment,alphas);
+K = -acker(A_augment,B_augment,alphas);
 K =-G;
 % forward gain
 F = 1/(C_augment*inv(eye(5)-A_augment-B_augment*K)*B_augment);
@@ -104,8 +106,6 @@ for i=2:length(x_)/h
     end
 end
 
-MIL_PIL_Simulation_2022MIL_PIL_Simulation_2022
-
 
 plot(time(1:i), y, 'b');
 hold
@@ -118,7 +118,7 @@ ylabel('x1');
 ylim([0, 2*r]); % set y-axis limit
 
 disp('Load MIL_PIL_Simulation_2022')
-
+assignment1_2022_Simulink_init_Dualrotary(delay,h,K,F);
 disp('Finished')
 
 

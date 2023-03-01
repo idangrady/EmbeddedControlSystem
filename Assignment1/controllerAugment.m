@@ -27,11 +27,18 @@ A_disc  = expm(A*h);
 sys_cont = ss(A, B, C, 0);
 sys_disc = c2d(sys_cont, h); % the output can be changed
 A_disc = sys_disc.a;
-B =sys_disc.b;
+B_disc =sys_disc.b;
 
 inv_A = inv(A_disc);
+
+r_1_0 = (h - delay)*B;
+r_1_t = delay*B;
+
+%{
 r_1_t = inv_A*(A_disc - expm(A*(h-delay)))*B; % compute the r1 for the augmented matrix
 r_1_0 = inv_A*(expm(A*(h-delay)) - 1)*B; % compute the r1 for the augmented matrix
+%}
+
 
 %augment the matrix including both old input and state.
 A_augment = [A_disc r_1_t ;zeros(1,5)]; % should be (4+1)x (4+1)
@@ -46,6 +53,7 @@ Q(5,1) =0;
 Q(1,2) =0;
 Q(4,4) =0.1;
 
+
 %compute LQR
 [X, L, G] = dare(A_augment,B_augment, Q, 0.5);
 
@@ -57,7 +65,7 @@ disp('Controllable')
 end
 
 %place poles
-alphas = [0.6 0.6 0.1 0.1 0.2];
+alphas = [0.6 0.6 0.6 0.6 0.6];
 %K = -acker(A_augment,B_augment,alphas);
 K =-G;
 % forward gain
@@ -116,7 +124,7 @@ ylabel('x1');
 ylim([0, 2*r]); % set y-axis limit
 
 disp('Load MIL_PIL_Simulation_2022')
-
+assignment1_2022_Simulink_init_Dualrotary(delay,h,K,F);
 disp('Finished')
 
 

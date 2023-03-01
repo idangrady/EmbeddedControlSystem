@@ -11,7 +11,7 @@ b = 0.1;
 R =1;
 L =0.5;
 
-h =0.0029; 
+h =0.0029*2; 
 delay = h/3;
 numStates =2000;
 
@@ -22,15 +22,17 @@ B = [0; 1/L];
 C = [1 0];
 
 %Prepare for augment
+%Prepare for augment
 A_disc  = expm(A*h);
 sys_cont = ss(A, B, C, 0);
 sys_disc = c2d(sys_cont, h); % the output can be changed
 A_disc = sys_disc.a;
-B =sys_disc.b;
+B_disc =sys_disc.b;
 
 inv_A = inv(A_disc);
-r_1_t = inv_A*(A_disc - expm(A*(h-delay)))*B; % compute the r1 for the augmented matrix
-r_1_0 = inv_A*(expm(A*(h-delay)) - 1)*B; % compute the r1 for the augmented matrix
+r_1_0 = (h - delay)*B;
+r_1_t = delay*B;
+
 
 %augment the matrix including both old input and state.
 A_augment = [A_disc r_1_t ;zeros(1,3)]; % should be (4+1)x (4+1)
@@ -116,6 +118,7 @@ ylabel('x1');
 ylim([0, 2*r]); % set y-axis limit
 
 disp('Load MIL_PIL_Simulation_2022')
+assignment1_2022_Simulink_init_DCmotor(delay,h,K,F);
 
 disp('Finished')
 
