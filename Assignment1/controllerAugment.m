@@ -45,11 +45,25 @@ C_augment = [C 0];
 
 % build Q matrix. should panalize state 3 and 4
 Q = eye(5);
-Q(3,3) =0.07;
-Q(3,1) =0;
-Q(5,1) =0;
-Q(1,2) =0;
-Q(4,4) =0.1;
+Q(3,3) =0.04;
+Q(4,4) =0.04;
+
+Q(1,1) =140;
+Q(1,2) =130;
+
+Q(1,5) =250;
+Q(2,2) =70;
+Q(4,4) =0.035;
+Q(4,2) =4.1;
+Q(4,2) =-10;
+Q(3,2) =-10;
+
+
+Q(5,2) =30;
+Q(5,5) =40;
+Q(5,3) =30;
+Q(5,1) =30;
+
 
 
 %compute LQR
@@ -63,7 +77,6 @@ disp('Controllable')
 end
 
 %place poles
-alphas = [0.6 0.6 0.6 0.6 0.6];
 %K = -acker(A_augment,B_augment,alphas);
 K =-G;
 % forward gain
@@ -81,8 +94,10 @@ output_x = zeros(numStates, length(x_)); % to store values
 input(2) = 0; input(1)=0; 
 time(2) = h; time(1) =0; % time initial conditions
 error = 0;
+length_itter = length(x_)/h;
+condition_to_stop =10;
 
-for i=2:length(x_)/h
+for i=2:length_itter
 
     y(i) = C_augment*x_;
     u  =K*[x_] +F*r;
@@ -91,7 +106,7 @@ for i=2:length(x_)/h
     output_x(i+1,:) = x_';
     
     %check constraints
-    if(checkConditions(x_, u,[3,4], 50, 1))
+    if(checkConditions(x_, u,[3,4], 35, 1))
        disp('Conditioned falied');
     end
     
@@ -107,7 +122,10 @@ for i=2:length(x_)/h
 
     % break the loop if converged
     if t_converge > 0
+        condition_to_stop =condition_to_stop-1;
+        if(condition_to_stop==0)
         break
+        end
     end
 end
 

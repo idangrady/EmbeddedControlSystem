@@ -110,7 +110,7 @@ end
 
 plot(time(1:i), y, 'b');
 hold
-plot(time(1:i+1)', input, 'r')
+plot(time(1:i+1), input, 'r')
 hline = refline([0 r]);
 legend('State', 'Input', 'Reference Line', 'Location', 'best')
 title('System Response');
