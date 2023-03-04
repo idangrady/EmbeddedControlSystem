@@ -1,4 +1,3 @@
-
 clc;
 clear all;
 format short;
@@ -9,7 +8,7 @@ j2 =  3.75*10^(-6);
 b =1*10^(-5);
 d=3.125*10^(-5);
 k = 0.2656;
-h =0.0029; 
+h =0.002*2; 
 delay = h/3;
 numStates =2000;
 
@@ -38,7 +37,6 @@ r_1_t = delay*B;
 r_1_t = inv_A*(A_disc - expm(A*(h-delay)))*B; % compute the r1 for the augmented matrix
 r_1_0 = inv_A*(expm(A*(h-delay)) - 1)*B; % compute the r1 for the augmented matrix
 %}
-
 
 %augment the matrix including both old input and state.
 A_augment = [A_disc r_1_t ;zeros(1,5)]; % should be (4+1)x (4+1)
@@ -88,13 +86,14 @@ for i=2:length(x_)/h
 
     y(i) = C_augment*x_;
     u  =K*[x_] +F*r;
-   
 
     x_ = A_augment*x_ + B_augment*u;
     output_x(i+1,:) = x_';
     
     %check constraints
-    checkConditions(x_, u,[3,4], 50, 1);
+    if(checkConditions(x_, u,[3,4], 50, 1))
+       disp('Conditioned falied');
+    end
     
     %Stores the input and time
     input(i+1) = u;
@@ -112,7 +111,6 @@ for i=2:length(x_)/h
     end
 end
 
-
 plot(time(1:i), y, 'b');
 hold
 plot(time(1:i+1), input, 'r')
@@ -123,7 +121,7 @@ xlabel('Time (sec)');
 ylabel('x1');
 ylim([0, 2*r]); % set y-axis limit
 
-disp('Load MIL_PIL_Simulation_2022')
+disp('Load assignment1_2022_Simulink_init_Dualrotary')
 assignment1_2022_Simulink_init_Dualrotary(delay,h,K,F);
 disp('Finished')
 

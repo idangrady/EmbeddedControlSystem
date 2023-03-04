@@ -11,8 +11,8 @@ b = 0.1;
 R =1;
 L =0.5;
 
-h =0.0029*2; 
-delay = h/3;
+h =0.002*2; 
+delay = 1*h/3;
 numStates =2000;
 
 %DEfine A
@@ -42,10 +42,11 @@ C_augment = [C 0];
 % build Q matrix. should panalize state 3 and 4
 Q = eye(3);
 
-Q(3,3) =0.07;
-Q(3,1) =0;
-Q(1,2) =0;
-
+Q(3,3) =0.1;
+Q(3,1) =0.1;
+Q(1,2) =0.9;
+Q(2,2) =0.8;
+Q(2,2) =0.1;
 
 %compute LQR
 [X, L, G] = dare(A_augment,B_augment, Q, 0.5);
@@ -87,7 +88,9 @@ for i=2:length(x_)/h
     output_x(i+1,:) = x_';
     
     %check constraints
-    checkConditions(x_, u,[1], 70, 12);
+    if(checkConditions(x_, u,[1], 70, 12))
+       disp('Conditioned falied');
+    end
     
     %Stores the input and time
     input(i+1) = u;
@@ -105,8 +108,6 @@ for i=2:length(x_)/h
     end
 end
 
-
-
 plot(time(1:i), y, 'b');
 hold
 plot(time(1:i+1)', input, 'r')
@@ -117,9 +118,9 @@ xlabel('Time (sec)');
 ylabel('x1');
 ylim([0, 2*r]); % set y-axis limit
 
-disp('Load MIL_PIL_Simulation_2022')
-assignment1_2022_Simulink_init_DCmotor(delay,h,K,F);
 
+disp('Load assignment1_2022_Simulink_init_DCmotor')
+%assignment1_2022_Simulink_init_DCmotor(delay,h,K,F);
 disp('Finished')
 
 
