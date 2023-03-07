@@ -1,6 +1,6 @@
-% clc;
-% clear all;
-% format short;
+clc;
+clear all;
+format short;
 
 km=4.4*10^(-2);
 
@@ -11,21 +11,30 @@ R =1;
 L =0.5;
 numStates =2000;
 
-%delay = 1*h/3;
+design = 1;
 
+switch design
+    case 1 
+        h =0.004; 
+        delay = 0.00003;
+    case 2
+        h =0.004; 
+        delay = 0.00000;
+    case 3
+        h =0.008; 
+        delay = 0.00003;
+    case 4
+        h =0.008; 
+        delay = 0.00000;
+otherwise
+    
 
-% %design 1
-% h =0.004; 
-% delay = 0.00003;
+%%
 
-%design 3
-h =0.008; 
-delay = 0.00003;
-
+% DC
 
 %DEfine A
 A = [-b/J K/J; -K/L -R/L];
-
 B = [0; 1/L];
 C = [1 0];
 
@@ -133,6 +142,14 @@ disp('Load assignment1_2022_Simulink_init_DCmotor')
 assignment1_2022_Simulink_init_DCmotor(delay,h,K,F);
 disp('Finished')
 
+
+
+
+
+%% 
+
+
+%Rotary
 
 
 
