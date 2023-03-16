@@ -3,17 +3,11 @@ clc;
 clear all;
 format short;
 
-km=4.4*10^(-2);
 
-K=0.01;
-J=0.01;
-b = 0.1;
-R =1;
-L =0.5;
-numStates =2000;
+Display =false;
+design = 4;
 
-Display =true;
-design = 2;
+for design=1:4
 DC_RUN =true;
 
 
@@ -35,10 +29,19 @@ switch design
 end
 
 % DC
-
 % update h
 if(DC_RUN==true)
     h= 2*h;
+
+
+km=4.4*10^(-2);
+K=0.01;
+J=0.01;
+b = 0.1;
+R =1;
+L =0.5;
+numStates =2000;
+
 
 
 %DEfine A
@@ -132,6 +135,8 @@ for i=2:length(x_)/h
     end
 end
 
+
+
 if Display
     plot(time(1:i), y, 'b');
     hold
@@ -145,7 +150,7 @@ if Display
 end
 Hc_DC = h;
 disp('Load assignment1_2022_Simulink_init_DCmotor')
-assignment1_2022_Simulink_init_DCmotor(delay,h,K,F);
+%assignment1_2022_Simulink_init_DCmotor(delay,h,K,F);
 disp('Finished')
 
 else
@@ -270,23 +275,35 @@ for i=2:length_itter
     end
 end
 
-if Display
-    plot(time(1:i), y, 'b');
-    hold
-    plot(time(1:i+1), input, 'r')
-    hline = refline([0 r]);
-    legend('State', 'Input', 'Reference Line', 'Location', 'best')
-    title('System Response');
-    xlabel('Time (sec)');
-    ylabel('x1');
-    ylim([0, 2*r]);
+if Display==true
+plot(time(1:i), y, 'b');
+hold
+plot(time(1:i+1), input, 'r')
+hline = refline(0, r); % modified this line
+legend('State', 'Input', 'Reference Line', 'Location', 'best')
+title('System Response');
+xlabel('Time (sec)');
+ylabel('x1');
+ylim([0, 2*r]);
 end
 
 Hc = h;
 
 disp('Load assignment1_2022_Simulink_init_Dualrotary')
-assignment1_2022_Simulink_init_Dualrotary(delay,h,K,F);
+%assignment1_2022_Simulink_init_Dualrotary(delay,h,K,F);
 disp('Finished')
 
 end
 
+% for loop
+
+disp("DC=: ")
+disp(DC_RUN)
+disp("Design: ")
+disp(design)
+disp("K: ")
+disp(K)
+disp("F: ")
+disp(F)
+
+end
