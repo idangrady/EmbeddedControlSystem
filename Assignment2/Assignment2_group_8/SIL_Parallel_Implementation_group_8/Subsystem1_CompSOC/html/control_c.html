@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - control.c</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" language="JavaScript" src="slwebview.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="id_mapping.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('control_c_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../../control.c" target="rtwreport_document_frame" id="linkToText_plain">control.c</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;stdlib.h&gt;</font>
+</span><span><a class="LN" name="2">    2   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;control.h&quot;</font>
+</span><span><a class="LN" name="3">    3   </a>
+</span><span><a class="LN" name="4">    4   </a><font color="#992211">#</font><span class="PP">define</span> SAMPLING_TIME       0.02
+</span><span><a class="LN" name="5">    5   </a><font color="#992211">#</font><span class="PP">define</span> INV_SAMPLING_TIME   50
+</span><span><a class="LN" name="6">    6   </a><font color="#992211">#</font><span class="PP">define</span> K_P                 60
+</span><span><a class="LN" name="7">    7   </a><font color="#992211">#</font><span class="PP">define</span> K_D                 40 
+</span><span><a class="LN" name="8">    8   </a><font color="#992211">#</font><span class="PP">define</span> K_I                 0
+</span><span><a class="LN" name="9">    9   </a>
+</span><span><a class="LN" name="10">   10   </a><span class="DT">volatile</span> <span class="DT">float</span> <a name="var_pPart">pPart</a> = 0.0, iPart = 0.0, dPart = 0.0;
+</span><span><a class="LN" name="11">   11   </a><span class="DT">volatile</span> <span class="DT">float</span> <a name="var_Err">Err</a> = 0, prev_Err = 0;
+</span><span><a class="LN" name="12">   12   </a>
+</span><span><a class="LN" name="13">   13   </a><span class="DT">float</span> <a name="fcn_controller_task">controller_task</a>(<span class="DT">float</span> desired_pos, <span class="DT">float</span> current_pos) 
+</span><span><a class="LN" name="14">   14   </a><b>{</b>  
+</span><span><a class="LN" name="15">   15   </a>   <span class="DT">float</span> control_input;  
+</span><span><a class="LN" name="16">   16   </a>  <span class="DT">int</span> diff_Err = <a href="#var_Err" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Err');" target="_self"><font color="#1122aa">Err</font></a> - prev_Err;
+</span><span><a class="LN" name="17">   17   </a> 
+</span><span><a class="LN" name="18">   18   </a>  <a href="#var_Err" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Err');" target="_self"><font color="#1122aa">Err</font></a> = desired_pos - current_pos;
+</span><span><a class="LN" name="19">   19   </a>  <a href="#var_pPart" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_pPart');" target="_self"><font color="#1122aa">pPart</font></a> = K_P *  <a href="#var_Err" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Err');" target="_self"><font color="#1122aa">Err</font></a>;
+</span><span><a class="LN" name="20">   20   </a>  <span class="KW">if</span> (abs(<a href="#var_Err" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Err');" target="_self"><font color="#1122aa">Err</font></a>) &lt; abs(desired_pos*0.1)) <b>{</b>
+</span><span><a class="LN" name="21">   21   </a>    iPart +=  K_I * SAMPLING_TIME *  <a href="#var_Err" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Err');" target="_self"><font color="#1122aa">Err</font></a>;
+</span><span><a class="LN" name="22">   22   </a>  <b>}</b>
+</span><span><a class="LN" name="23">   23   </a>  <span class="KW">else</span> <b>{</b>
+</span><span><a class="LN" name="24">   24   </a>    iPart = 0;
+</span><span><a class="LN" name="25">   25   </a>  <b>}</b>
+</span><span><a class="LN" name="26">   26   </a>  dPart = K_D * diff_Err * INV_SAMPLING_TIME;
+</span><span><a class="LN" name="27">   27   </a>  control_input =  (<a href="#var_pPart" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_pPart');" target="_self"><font color="#1122aa">pPart</font></a> + iPart + dPart);
+</span><span><a class="LN" name="28">   28   </a>  prev_Err = <a href="#var_Err" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_Err');" target="_self"><font color="#1122aa">Err</font></a>;
+</span><span><a class="LN" name="29">   29   </a>  
+</span><span><a class="LN" name="30">   30   </a>  <span class="KW">return</span> control_input;
+</span><span><a class="LN" name="31">   31   </a><b>}</b></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

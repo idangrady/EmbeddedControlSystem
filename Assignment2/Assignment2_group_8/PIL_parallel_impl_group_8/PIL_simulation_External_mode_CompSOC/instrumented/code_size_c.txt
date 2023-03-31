@@ -1,0 +1,2 @@
+   text	   data	    bss	    dec	    hex	filename
+  18558	    302	   5564	  24424	   5f68	PIL_simulation_External_mode.elf

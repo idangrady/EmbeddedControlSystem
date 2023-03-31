@@ -1,0 +1,26 @@
+{
+ "baseUrl":"support/slwebview_files",
+ "homeHid":2,
+ "initialElement":"",
+ "sections":[
+  {
+   "hid":1,
+   "sid":"PIL_simulation_monitoring_app",
+   "name":"PIL_simulation_monitoring_app",
+   "fullname":"PIL_simulation_monitoring_app",
+   "label":"PIL_simulation_monitoring_app",
+   "parent":0,
+   "descendants":[
+    2
+   ],
+   "hierarchyUrl":"support/slwebview_files/PIL_simulation_monitoring_app_h_1.json",
+   "backingUrl":"support/slwebview_files/PIL_simulation_monitoring_app_m.json"
+  }
+ ],
+ "optViews":[
+ ],
+ "display":{
+  "informer":false
+ },
+ "iconsUrl":"support/slwebview_files/PIL_simulation_monitoring_app_7619_icons.css"
+}

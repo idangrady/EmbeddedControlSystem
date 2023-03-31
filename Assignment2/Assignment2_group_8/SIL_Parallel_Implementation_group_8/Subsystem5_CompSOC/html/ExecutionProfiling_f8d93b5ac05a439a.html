@@ -1,0 +1,227 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="rtwreport.css" /><script language="JavaScript" type="text/javascript">
+/*<![CDATA[*/
+function rtwRunMatlabCmd(cmd) {
+  try { 
+    window.location.href="matlab: " + cmd;
+  } catch (e) { 
+  } 
+}
+/*]]>*/
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><SCRIPT type="text/javascript" language="JavaScript" src="rtwshrink.js"></SCRIPT>
+<title>
+Code Execution Profiling Report for SIL_Simulation_Parallel_Implementation/Subsystem3
+</title>
+
+</head>
+<body>
+<h1>
+Code Execution Profiling Report for SIL_Simulation_Parallel_Implementation/Subsystem3
+</h1>
+<p>The code execution profiling report provides metrics based on data collected from a SIL or PIL execution. Execution times are calculated from data recorded by instrumentation probes added to the SIL or PIL test harness or inside the code generated for each component. See <a href="matlab:helpview('/opt/matlab/r2018b/help/toolbox/ecoder/helptargets.map', 'sil_pil_code_exe_profile')">Code Execution Profiling</a> for more information.</p>
+<h3 name="sec_Summary" id="sec_Summary">
+1. Summary
+</h3>
+<table border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff"><td width="50%" align="left" style="border-style: none"><a title="Total recorded time">Total time</a></td>
+<td width="50%" align="left" style="border-style: none"><a>13625050</a></td>
+</tr>
+<tr style="background-color: #ffffff"><td width="50%" align="left" style="border-style: none"><a title="Unit of measurement for time">Unit of time</a></td>
+<td width="50%" align="left" style="border-style: none"><a>ns</a></td>
+</tr>
+<tr style="background-color: #eeeeff"><td width="50%" align="left" style="border-style: none"><a title="Command to generate this report">Command</a></td>
+<td width="50%" align="left" style="border-style: none"><a>report(executionProfile, 'Units', 'seconds', 'ScaleFactor', '1e-09', 'NumericFormat', '%0.0f');</a></td>
+</tr>
+<tr style="background-color: #ffffff"><td width="50%" align="left" style="border-style: none"><a title="Timer frequency, if available, allows conversion of time units from timer ticks to seconds">Timer frequency (ticks per second)</a></td>
+<td width="50%" align="left" style="border-style: none"><a>4e+07</a></td>
+</tr>
+<tr style="background-color: #eeeeff"><td width="50%" align="left" style="border-style: none"><a title="Time when execution profiling data was created">Profiling data created</a></td>
+<td width="50%" align="left" style="border-style: none">18-Mar-2023 19:53:37</td>
+</tr>
+</table>
+
+</td>
+
+</tr>
+
+</table>
+<h3 name="sec_Profiled_Sections_of_Code" id="sec_Profiled_Sections_of_Code">
+2. Profiled Sections of Code
+</h3>
+<table border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" name="Code Execution Profiling Report" id="Code Execution Profiling Report" class="treeTable" border="1">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="31%" align="left" valign="top" style="border-style: none">
+<b>
+Section
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<a title="Longest time (seconds) between start and end of code section.">Maximum Execution Time in ns</a>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<a title="Average time (seconds) between start and end of code section.">Average Execution Time in ns</a>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<a title="Maximum execution time (seconds), excluding time in child sections.">Maximum Self Time in ns</a>
+</b>
+
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<b>
+<a title="Average execution time (seconds), excluding time in child sections.">Average Self Time in ns</a>
+</b>
+
+</td>
+<td width="8%" align="right" valign="top" style="border-style: none">
+<b>
+Calls
+</b>
+
+</td>
+<td width="10%" align="center" valign="top" style="border-style: none">
+<b>
+
+</b>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" style="border-style:none" name="" id="" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #ffffff">
+<td width="31%" align="left" valign="top" style="border-style: none">
+<span>&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160;&#160;<a title = "SIL_Simulation_Parallel_Implementation/Subsystem3" href = "matlab:coder.internal.SLCExecTimeReport.modelHighlight('SIL_Simulation_Parallel_Implementation/Subsystem3');">Subsystem5_initialize</a></span>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a title="Elapsed time = 1075 at call number 1">1075</a>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a>1075</a>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a title="Self time = 1075 at call number 1">1075</a>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a>1075</a>
+</td>
+<td width="8%" align="right" valign="top" style="border-style: none">
+<a>1</a>
+</td>
+<td width="10%" align="center" valign="top" style="border-style: none">
+<table class="links_fixed"><col></col><col></col><col></col><tr> <td><a></a></td> <td><a title = "View profiled section number 1 in the command window" href = "matlab:coder.profile.ExecTimeHelper.sectionDisplay(uint64(7515171302621233290), uint64(1), 'SIL_Simulation_Parallel_Implementation', coder.internal.SLCExecTimeReport);"><img src="/opt/matlab/r2018b/toolbox/coder/profile/resources/membrane_16.png"/></a></td> <td><a title = "Plot time series data" href = "matlab:coder.profile.ExecTimeHelper.sdiPlot(uint64(7515171302621233290), uint64(10252887545566138956), 'SIL_Simulation_Parallel_Implementation', coder.internal.SLCExecTimeReport);"><img src="/opt/matlab/r2018b/toolbox/coder/profile/resources/SimulationDataInspector_16.png"/></a></td> </tr></table>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="0" cellspacing="0" style="border-style:none" name="" id="" border="0">
+<tr>
+<td align="left" valign="top">
+<table width="100%" cellpadding="2" border="0">
+<tr style="background-color: #eeeeff">
+<td width="31%" align="left" valign="top" style="border-style: none">
+<span>&#160;<span style="font-family:monospace">&#160;&#160;</span>&#160;&#160;<a title = "SIL_Simulation_Parallel_Implementation/Subsystem3" href = "matlab:coder.internal.SLCExecTimeReport.modelHighlight('SIL_Simulation_Parallel_Implementation/Subsystem3');">Subsystem5_step [0.02 0]</a></span>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a title="Elapsed time = 54475 at call number 103">54475</a>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a>54279</a>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a title="Self time = 54475 at call number 103">54475</a>
+</td>
+<td width="12%" align="right" valign="top" style="border-style: none">
+<a>54279</a>
+</td>
+<td width="8%" align="right" valign="top" style="border-style: none">
+<a>251</a>
+</td>
+<td width="10%" align="center" valign="top" style="border-style: none">
+<table class="links_fixed"><col></col><col></col><col></col><tr> <td><a></a></td> <td><a title = "View profiled section number 2 in the command window" href = "matlab:coder.profile.ExecTimeHelper.sectionDisplay(uint64(7515171302621233290), uint64(2), 'SIL_Simulation_Parallel_Implementation', coder.internal.SLCExecTimeReport);"><img src="/opt/matlab/r2018b/toolbox/coder/profile/resources/membrane_16.png"/></a></td> <td><a title = "Plot time series data" href = "matlab:coder.profile.ExecTimeHelper.sdiPlot(uint64(7515171302621233290), uint64(3480433799979488017), 'SIL_Simulation_Parallel_Implementation', coder.internal.SLCExecTimeReport);"><img src="/opt/matlab/r2018b/toolbox/coder/profile/resources/SimulationDataInspector_16.png"/></a></td> </tr></table>
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+
+</td>
+
+</tr>
+
+</table>
+<style>
+table.links_fixed {table-layout:fixed; width:72px; background-color:transparent}
+table.links_fixed td:nth-of-type(1) {width:24px;}/*Setting the width of column 1.*/
+table.links_fixed td:nth-of-type(2) {width:24px;}/*Setting the width of column 2.*/
+table.links_fixed td:nth-of-type(3) {width:24px;}/*Setting the width of column 3.*/
+</style>    
+
+</td>
+
+</tr>
+
+</table>
+<h3 name="sec_Definitions" id="sec_Definitions">
+3. Definitions
+</h3>
+<table border="0">
+<tr>
+<td align="left" valign="top">
+<p><b><a>Execution Time</a></b>: Time between start and end of code section.</p><p><b><a>Self Time</a></b>: Execution time, excluding time in child sections.</p>
+</td>
+
+</tr>
+
+</table>
+
+</body>
+
+</html>

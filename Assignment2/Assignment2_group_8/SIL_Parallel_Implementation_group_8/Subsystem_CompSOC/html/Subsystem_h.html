@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - Subsystem.h</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" language="JavaScript" src="slwebview.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="id_mapping.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('Subsystem_h_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../Subsystem.h" target="rtwreport_document_frame" id="linkToText_plain">Subsystem.h</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="2">    2   </a><span class="CT"> * Academic License - for use in teaching, academic research, and meeting</span>
+</span><span><a class="LN" name="3">    3   </a><span class="CT"> * course requirements at degree granting institutions only.  Not for</span>
+</span><span><a class="LN" name="4">    4   </a><span class="CT"> * government, commercial, or other organizational use.</span>
+</span><span><a class="LN" name="5">    5   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="6">    6   </a><span class="CT"> * File: Subsystem.h</span>
+</span><span><a class="LN" name="7">    7   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="8">    8   </a><span class="CT"> * Code generated for Simulink model 'Subsystem'.</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT"> * Model version                  : 1.1227</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT"> * Simulink Coder version         : 9.0 (R2018b) 24-May-2018</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT"> * C/C++ source code generated on : Sat Mar 18 19:35:27 2023</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="14">   14   </a><span class="CT"> * Target selection: CompSOC_ec.tlc</span>
+</span><span><a class="LN" name="15">   15   </a><span class="CT"> * Embedded hardware selection: Custom Processor</span>
+</span><span><a class="LN" name="16">   16   </a><span class="CT"> * Code generation objectives:</span>
+</span><span><a class="LN" name="17">   17   </a><span class="CT"> *    1. RAM efficiency</span>
+</span><span><a class="LN" name="18">   18   </a><span class="CT"> *    2. Execution efficiency</span>
+</span><span><a class="LN" name="19">   19   </a><span class="CT"> * Validation result: Not run</span>
+</span><span><a class="LN" name="20">   20   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="21">   21   </a>
+</span><span><a class="LN" name="22">   22   </a><font color="#992211">#</font><span class="PP">ifndef</span> RTW_HEADER_Subsystem_h_
+</span><span><a class="LN" name="23">   23   </a><font color="#992211">#</font><span class="PP">define</span> RTW_HEADER_Subsystem_h_
+</span><span><a class="LN" name="24">   24   </a><font color="#992211">#</font><span class="PP">ifndef</span> Subsystem_COMMON_INCLUDES_
+</span><span><a class="LN" name="25">   25   </a><font color="#992211">#</font> <span class="PP">define</span> Subsystem_COMMON_INCLUDES_
+</span><span><a class="LN" name="26">   26   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;rtwtypes.h&quot;</font>
+</span><span><a class="LN" name="27">   27   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;rtw_continuous.h&quot;</font>
+</span><span><a class="LN" name="28">   28   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;rtw_solver.h&quot;</font>
+</span><span><a class="LN" name="29">   29   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&quot;sensing_task1.h&quot;</font>
+</span><span><a class="LN" name="30">   30   </a><font color="#992211">#</font><span class="PP">endif</span>                                 <span class="CT">/* Subsystem_COMMON_INCLUDES_ */</span>
+</span><span><a class="LN" name="31">   31   </a>
+</span><span><a class="LN" name="32">   32   </a><span class="CT">/* Macros for accessing real-time model data structure */</span>
+</span><span><a class="LN" name="33">   33   </a><font color="#992211">#</font><span class="PP">ifndef</span> rtmGetErrorStatus
+</span><span><a class="LN" name="34">   34   </a><font color="#992211">#</font> <span class="PP">define</span> rtmGetErrorStatus(rtm)        ((rtm)-&gt;errorStatus)
+</span><span><a class="LN" name="35">   35   </a><font color="#992211">#</font><span class="PP">endif</span>
+</span><span><a class="LN" name="36">   36   </a>
+</span><span><a class="LN" name="37">   37   </a><font color="#992211">#</font><span class="PP">ifndef</span> rtmSetErrorStatus
+</span><span><a class="LN" name="38">   38   </a><font color="#992211">#</font> <span class="PP">define</span> rtmSetErrorStatus(rtm, val)   ((rtm)-&gt;errorStatus = (val))
+</span><span><a class="LN" name="39">   39   </a><font color="#992211">#</font><span class="PP">endif</span>
+</span><span><a class="LN" name="40">   40   </a>
+</span><span><a class="LN" name="41">   41   </a><span class="CT">/* Forward declaration for rtModel */</span>
+</span><span><a class="LN" name="42">   42   </a><span class="KW">typedef</span> <span class="KW">struct</span> tag_RTM <a name="type_RT_MODEL">RT_MODEL</a>;
+</span><span><a class="LN" name="43">   43   </a>
+</span><span><a class="LN" name="44">   44   </a><span class="CT">/* External inputs (root inport signals with default storage) */</span>
+</span><span><a class="LN" name="45">   45   </a><span class="KW">typedef</span> <span class="KW">struct</span> <b>{</b>
+</span><span><a class="LN" name="46">   46   </a>  <a href="rtwtypes_h.html#type_uint8_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_uint8_T');" target="_self"><font color="#1122aa">uint8_T</font></a> In1[12496];                  <span class="CT">/* '&lt;Root&gt;/In1' */</span>
+</span><span><a class="LN" name="47">   47   </a><b>}</b> <a name="type_ExtU">ExtU</a>;
+</span><span><a class="LN" name="48">   48   </a>
+</span><span><a class="LN" name="49">   49   </a><span class="CT">/* External outputs (root outports fed by signals with default storage) */</span>
+</span><span><a class="LN" name="50">   50   </a><span class="KW">typedef</span> <span class="KW">struct</span> <b>{</b>
+</span><span><a class="LN" name="51">   51   </a>  <a href="rtwtypes_h.html#type_int16_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_int16_T');" target="_self"><font color="#1122aa">int16_T</font></a> Out1;                        <span class="CT">/* '&lt;Root&gt;/Out1' */</span>
+</span><span><a class="LN" name="52">   52   </a>  <a href="rtwtypes_h.html#type_int16_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_int16_T');" target="_self"><font color="#1122aa">int16_T</font></a> Out2;                        <span class="CT">/* '&lt;Root&gt;/Out2' */</span>
+</span><span><a class="LN" name="53">   53   </a>  <a href="rtwtypes_h.html#type_int16_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_int16_T');" target="_self"><font color="#1122aa">int16_T</font></a> Out3;                        <span class="CT">/* '&lt;Root&gt;/Out3' */</span>
+</span><span><a class="LN" name="54">   54   </a>  <a href="rtwtypes_h.html#type_int16_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_int16_T');" target="_self"><font color="#1122aa">int16_T</font></a> Out4;                        <span class="CT">/* '&lt;Root&gt;/Out4' */</span>
+</span><span><a class="LN" name="55">   55   </a><b>}</b> <a name="type_ExtY">ExtY</a>;
+</span><span><a class="LN" name="56">   56   </a>
+</span><span><a class="LN" name="57">   57   </a><span class="CT">/* Real-time Model Data Structure */</span>
+</span><span><a class="LN" name="58">   58   </a><span class="KW">struct</span> tag_RTM <b>{</b>
+</span><span><a class="LN" name="59">   59   </a>  <span class="DT">const</span> <a href="rtwtypes_h.html#type_char_T" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_char_T');" target="_self"><font color="#1122aa">char_T</font></a> * <span class="DT">volatile</span> errorStatus;
+</span><span><a class="LN" name="60">   60   </a><b>}</b>;
+</span><span><a class="LN" name="61">   61   </a>
+</span><span><a class="LN" name="62">   62   </a><span class="CT">/* External inputs (root inport signals with default storage) */</span>
+</span><span><a class="LN" name="63">   63   </a><span class="DT">extern</span> <a href="#type_ExtU" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_ExtU');" target="_self"><font color="#1122aa">ExtU</font></a> <a href="Subsystem_c.html#var_rtU" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_rtU');" target="_self"><font color="#1122aa">rtU</font></a>;
+</span><span><a class="LN" name="64">   64   </a>
+</span><span><a class="LN" name="65">   65   </a><span class="CT">/* External outputs (root outports fed by signals with default storage) */</span>
+</span><span><a class="LN" name="66">   66   </a><span class="DT">extern</span> <a href="#type_ExtY" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_ExtY');" target="_self"><font color="#1122aa">ExtY</font></a> <a href="Subsystem_c.html#var_rtY" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_rtY');" target="_self"><font color="#1122aa">rtY</font></a>;
+</span><span><a class="LN" name="67">   67   </a>
+</span><span><a class="LN" name="68">   68   </a><span class="CT">/* Model entry point functions */</span>
+</span><span><a class="LN" name="69">   69   </a><span class="DT">extern</span> <span class="DT">void</span> <a href="Subsystem_c.html#fcn_Subsystem_initialize" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_Subsystem_initialize');" target="_self"><font color="#1122aa">Subsystem_initialize</font></a>(<span class="DT">void</span>);
+</span><span><a class="LN" name="70">   70   </a><span class="DT">extern</span> <span class="DT">void</span> <a href="Subsystem_c.html#fcn_Subsystem_step" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_Subsystem_step');" target="_self"><font color="#1122aa">Subsystem_step</font></a>(<span class="DT">void</span>);
+</span><span><a class="LN" name="71">   71   </a>
+</span><span><a class="LN" name="72">   72   </a><span class="CT">/* Real-time Model object */</span>
+</span><span><a class="LN" name="73">   73   </a><span class="DT">extern</span> <a href="#type_RT_MODEL" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'type_RT_MODEL');" target="_self"><font color="#1122aa">RT_MODEL</font></a> *<span class="DT">const</span> <a href="Subsystem_c.html#var_rtM" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'var_rtM');" target="_self"><font color="#1122aa">rtM</font></a>;
+</span><span><a class="LN" name="74">   74   </a>
+</span><span><a class="LN" name="75">   75   </a><span class="CT">/*-</span>
+</span><span><a class="LN" name="76">   76   </a><span class="CT"> * The generated code includes comments that allow you to trace directly</span>
+</span><span><a class="LN" name="77">   77   </a><span class="CT"> * back to the appropriate location in the model.  The basic format</span>
+</span><span><a class="LN" name="78">   78   </a><span class="CT"> * is &lt;system&gt;/block_name, where system is the system number (uniquely</span>
+</span><span><a class="LN" name="79">   79   </a><span class="CT"> * assigned by Simulink) and block_name is the name of the block.</span>
+</span><span><a class="LN" name="80">   80   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="81">   81   </a><span class="CT"> * Note that this particular code originates from a subsystem build,</span>
+</span><span><a class="LN" name="82">   82   </a><span class="CT"> * and has its own system numbers different from the parent model.</span>
+</span><span><a class="LN" name="83">   83   </a><span class="CT"> * Refer to the system hierarchy for this subsystem below, and use the</span>
+</span><span><a class="LN" name="84">   84   </a><span class="CT"> * MATLAB hilite_system command to trace the generated code back</span>
+</span><span><a class="LN" name="85">   85   </a><span class="CT"> * to the parent model.  For example,</span>
+</span><span><a class="LN" name="86">   86   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="87">   87   </a><span class="CT"> * hilite_system('SIL_Simulation_Parallel_Implementation/Subsystem')    - opens subsystem SIL_Simulation_Parallel_Implementation/Subsystem</span>
+</span><span><a class="LN" name="88">   88   </a><span class="CT"> * hilite_system('SIL_Simulation_Parallel_Implementation/Subsystem/Kp') - opens and selects block Kp</span>
+</span><span><a class="LN" name="89">   89   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="90">   90   </a><span class="CT"> * Here is the system hierarchy for this model</span>
+</span><span><a class="LN" name="91">   91   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="92">   92   </a><span class="CT"> * '&lt;Root&gt;' : 'SIL_Simulation_Parallel_Implementation'</span>
+</span><span><a class="LN" name="93">   93   </a><span class="CT"> * '<a href="matlab:coder.internal.code2model('SIL_Simulation_Parallel_Implementation:6992')" name="code2model"><font color="#117755"><i>&lt;S1&gt;</i></font></a>'   : 'SIL_Simulation_Parallel_Implementation/Subsystem'</span>
+</span><span><a class="LN" name="94">   94   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="95">   95   </a><font color="#992211">#</font><span class="PP">endif</span>                                 <span class="CT">/* RTW_HEADER_Subsystem_h_ */</span>
+</span><span><a class="LN" name="96">   96   </a>
+</span><span><a class="LN" name="97">   97   </a><span class="CT">/*</span>
+</span><span><a class="LN" name="98">   98   </a><span class="CT"> * File trailer for generated code.</span>
+</span><span><a class="LN" name="99">   99   </a><span class="CT"> *</span>
+</span><span><a class="LN" name="100">  100   </a><span class="CT"> * [EOF]</span>
+</span><span><a class="LN" name="101">  101   </a><span class="CT"> */</span>
+</span><span><a class="LN" name="102">  102   </a>
+</span></pre>
+</td></tr></table>
+</p>
+</body>
+</html>

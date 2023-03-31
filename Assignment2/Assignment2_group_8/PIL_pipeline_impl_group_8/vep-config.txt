@@ -1,0 +1,39 @@
+##
+## you can comment out & modify the "on tile ... " lines
+##
+## - partitions can only have a memory size of 32K or 64K
+## - the size of all partitions on a tile must be at most 96K
+##   (i.e. 128K including the system application)
+## - default memory is 32K, default stack is 4K
+##
+## use /opt/riscv/bin/riscv32-unknown-elf-size [-A] *.elf
+## to analyse a partition's memory usage
+##
+## memory and stack allocation
+##
+on tile 0 partition 1 has 64K memory and 4K stack
+#on tile 0 partition 2 has 32K memory and 4K stack
+#on tile 0 partition 3 has 32K memory and 4K stack
+on tile 1 partition 1 has 64K memory and 4K stack
+#on tile 1 partition 2 has 32K memory and 4K stack
+#on tile 1 partition 3 has 32K memory and 4K stack
+on tile 2 partition 1 has 64K memory and 4K stack
+#on tile 2 partition 2 has 32K memory and 4K stack
+#on tile 2 partition 3 has 32K memory and 4K stack
+##
+## scheduling
+##
+## - max 3 slots per tile
+## - it is allowed to not schedule anything on a tile
+## - a partition can have more than one slot
+## - the system partition always get a slot of 5000 cycles 
+##   at the end: you don't have to add this
+##
+#on tile 0 next slot is for partition 1 with 200000 cycles
+on tile 0 next slot is for partition 1 with 2000000 cycles
+#on tile 0 next slot is for partition 2 with 56000 cycles
+#on tile 0 next slot is for partition 1 with 71000 cycles
+on tile 1 next slot is for partition 1 with 791000 cycles
+on tile 2 next slot is for partition 1 with 791000 cycles
+# on tile 2 next slot is for partition 2 with 10000 cycles
+# on tile 2 next slot is for partition 3 with 100000 cycles

@@ -1,0 +1,341 @@
+
+Subsystem.elf:     file format elf32-littleriscv
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text.init    0000006a  00000000  00000000  00001000  2**0
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .text         000004e8  0000006a  0000006a  0000106a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .text.startup.main 00000050  00000552  00000552  00001552  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .text.getNextXILIOData 0000001a  000005a2  000005a2  000015a2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  4 .text.computeNextState 000000aa  000005bc  000005bc  000015bc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  5 .text.processTargetToHostData 0000006c  00000666  00000666  00001666  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  6 .text.finalizeCommandResponse 00000046  000006d2  000006d2  000016d2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  7 .text.xilReadCommandCode 00000062  00000718  00000718  00001718  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  8 .text.xilProcessMsg 0000022a  0000077a  0000077a  0000177a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  9 .text.commsRun 0000000e  000009a4  000009a4  000019a4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 10 .text.xilRun  0000002a  000009b2  000009b2  000019b2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 11 .text.xilCommandDispatchAndResponse 000000be  000009dc  000009dc  000019dc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 12 .text.xilGetCurrentProcessMsgContext 00000018  00000a9a  00000a9a  00001a9a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .text.resetXILWriteBuffer 0000004c  00000ab2  00000ab2  00001ab2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 14 .text.sendWriteBuffer 00000064  00000afe  00000afe  00001afe  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.silpilInit 0000001a  00000b62  00000b62  00001b62  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.xilWriteData 0000009a  00000b7c  00000b7c  00001b7c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.xilReadData 00000094  00000c16  00000c16  00001c16  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.xilDataFlush 00000028  00000caa  00000caa  00001caa  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.silpilTerminate 00000002  00000cd2  00000cd2  00001cd2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 20 .text.xilInit 00000028  00000cd4  00000cd4  00001cd4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .text.xilTerminateComms 00000018  00000cfc  00000cfc  00001cfc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 22 .text.xilProcessParams 00000008  00000d14  00000d14  00001d14  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 23 .text.xilUploadCodeInstrData 00000038  00000d1c  00000d1c  00001d1c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 24 .text.xilGetDataTypeInfo 0000003c  00000d54  00000d54  00001d54  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 25 .text.xilInitialize 00000022  00000d90  00000d90  00001d90  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 26 .text.xilPause 00000008  00000db2  00000db2  00001db2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 27 .text.xilSystemInitialize 00000008  00000dba  00000dba  00001dba  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 28 .text.xilSystemReset 00000008  00000dc2  00000dc2  00001dc2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 29 .text.xilGetHostToTargetData 0000007c  00000dca  00000dca  00001dca  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 30 .text.xilOutput 0000002a  00000e46  00000e46  00001e46  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 31 .text.xilUpdate 00000008  00000e70  00000e70  00001e70  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 32 .text.xilGetTargetToHostData 00000114  00000e78  00000e78  00001e78  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 33 .text.xilTerminate 00000008  00000f8c  00000f8c  00001f8c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 34 .text.xilEnable 00000008  00000f94  00000f94  00001f94  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 35 .text.xilDisable 00000008  00000f9c  00000f9c  00001f9c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 36 .text.commsInit 0000001c  00000fa4  00000fa4  00001fa4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 37 .text.commsTerminate 0000001c  00000fc0  00000fc0  00001fc0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 38 .text.commsEnqueueBuffer 00000044  00000fdc  00000fdc  00001fdc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 39 .text.rtiostreamReadMessage 00000064  00001020  00001020  00002020  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 40 .text.xilTgtAppSvcCreate 00000004  00001084  00001084  00002084  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 41 .text.xilTgtAppSvcDestroy 00000002  00001088  00001088  00002088  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 42 .text.xilTgtAppSvcAllocBuffer 0000000e  0000108a  0000108a  0000208a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 43 .text.xilTgtAppSvcGetBufferDataPtr 0000000a  00001098  00001098  00002098  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 44 .text.xilTgtAppSvcSend 00000014  000010a2  000010a2  000020a2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 45 .text.rtIOStreamBlockingSend 0000003e  000010b6  000010b6  000020b6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 46 .text.rtIOStreamBlockingRecv 0000003e  000010f4  000010f4  000020f4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 47 .text.sendResult 00000056  00001132  00001132  00002132  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 48 .text.coderAssumptionsRun 00000282  00001188  00001188  00002188  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 49 .text.coderAssumptionsWriteData 00000050  0000140a  0000140a  0000240a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 50 .text.resetCoderAssumptionsWriteBuffer 0000003a  0000145a  0000145a  0000245a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 51 .text.coderAssumptionsSendWriteBuffer 0000002a  00001494  00001494  00002494  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 52 .text.coderAssumptionsInit 0000001a  000014be  000014be  000024be  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 53 .text.coderAssumptionsTerminate 00000002  000014d8  000014d8  000024d8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 54 .text.coderAssumpTgtAppSvcCreate 00000004  000014da  000014da  000024da  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 55 .text.coderAssumpTgtAppSvcDestroy 00000002  000014de  000014de  000024de  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 56 .text.coderAssumpTgtAppSvcAllocBuffer 0000000e  000014e0  000014e0  000024e0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 57 .text.coderAssumpTgtAppSvcGetBufferDataPtr 0000000a  000014ee  000014ee  000024ee  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 58 .text.coderAssumpTgtAppSvcSend 00000014  000014f8  000014f8  000024f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 59 .text.cheap_init 0000007a  0000150c  0000150c  0000250c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 60 .text.cheap_destroy 00000030  00001586  00001586  00002586  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 61 .text.cheap_release_tokens 00000020  000015b6  000015b6  000025b6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 62 .text.cheap_release_spaces 00000020  000015d6  000015d6  000025d6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 63 .text.cheap_release_all_claimed_tokens 00000006  000015f6  000015f6  000025f6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 64 .text.cheap_release_all_claimed_spaces 00000006  000015fc  000015fc  000025fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 65 .text.cheap_get_tokens_remaining 00000018  00001602  00001602  00002602  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 66 .text.cheap_claim_tokens 00000062  0000161a  0000161a  0000261a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 67 .text.cheap_get_spaces_remaining 0000001c  0000167c  0000167c  0000267c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 68 .text.cheap_claim_spaces 0000005c  00001698  00001698  00002698  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 69 .text.cheap_get_buffer_capacity 00000004  000016f4  000016f4  000026f4  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 70 .text.rtIOStreamOpen 00000018  000016f8  000016f8  000026f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 71 .text.rtIOStreamSend 00000086  00001710  00001710  00002710  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 72 .text.rtIOStreamRecv 00000096  00001796  00001796  00002796  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 73 .text.rtIOStreamClose 00000018  0000182c  0000182c  0000282c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 74 .text.xilUploadProfilingData 00000010  00001844  00001844  00002844  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 75 .text.xilProfilingTimerFreeze 0000003c  00001854  00001854  00002854  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 76 .text.xilProfilingTimerUnFreeze 00000016  00001890  00001890  00002890  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 77 .text.taskTimeStart 0000000c  000018a6  000018a6  000028a6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 78 .text.taskTimeEnd 00000014  000018b2  000018b2  000028b2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 79 .text.profileStart 00000012  000018c6  000018c6  000028c6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 80 .text.profileEnd 00000016  000018d8  000018d8  000028d8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 81 .text.profileStart_Subsystem 00000004  000018ee  000018ee  000028ee  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 82 .text.profileEnd_Subsystem 00000004  000018f2  000018f2  000028f2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 83 .text.taskTimeStart_Subsystem 00000002  000018f6  000018f6  000028f6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 84 .text.taskTimeEnd_Subsystem 00000002  000018f8  000018f8  000028f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 85 .text.resetCodeInstrWriteBuffer 0000004a  000018fa  000018fa  000028fa  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 86 .text.codeInstrInit 0000001a  00001944  00001944  00002944  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 87 .text.codeInstrTerminate 00000002  0000195e  0000195e  0000295e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 88 .text.codeInstrWriteData 0000009c  00001960  00001960  00002960  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 89 .text.codeInstrDataFlush 00000026  000019fc  000019fc  000029fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 90 .text.codeInstrTgtAppSvcCreate 00000004  00001a22  00001a22  00002a22  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 91 .text.codeInstrTgtAppSvcDestroy 00000002  00001a26  00001a26  00002a26  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 92 .text.codeInstrTgtAppSvcAllocBuffer 0000000e  00001a28  00001a28  00002a28  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 93 .text.codeInstrTgtAppSvcGetBufferDataPtr 0000000a  00001a36  00001a36  00002a36  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 94 .text.codeInstrTgtAppSvcSend 00000016  00001a40  00001a40  00002a40  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 95 .text.Subsystem_step 0000003a  00001a56  00001a56  00002a56  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 96 .text.Subsystem_initialize 00000002  00001a90  00001a90  00002a90  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 97 .text.monitor 00000124  00001a92  00001a92  00002a92  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 98 .text.read_int 0000001a  00001bb6  00001bb6  00002bb6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 99 .text.read_uint32 0000001a  00001bd0  00001bd0  00002bd0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+100 .text.read_float 0000001a  00001bea  00001bea  00002bea  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+101 .text.read_byte 0000001c  00001c04  00001c04  00002c04  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+102 .text.read_lock 00000006  00001c20  00001c20  00002c20  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+103 .text.write_float 0000001a  00001c26  00001c26  00002c26  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+104 .text.write_int 0000001a  00001c40  00001c40  00002c40  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+105 .text.write_byte 0000001c  00001c5a  00001c5a  00002c5a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+106 .text.write_lock 00000006  00001c76  00001c76  00002c76  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+107 .text.write_uint32 0000001a  00001c7c  00001c7c  00002c7c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+108 .text.Subsystem_caRunTests 0000003c  00001c96  00001c96  00002c96  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+109 .text.caVerifyPortableWordSizes 00000006  00001cd2  00001cd2  00002cd2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+110 .text.caVerifyHWImpl 00000302  00001cd8  00001cd8  00002cd8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+111 .text.getnum  0000004c  00001fda  00001fda  00002fda  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+112 .text.padding.part.0 0000002c  00002026  00002026  00003026  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+113 .text.outnum  000000f8  00002052  00002052  00003052  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+114 .text.xil_printf 0000020a  0000214a  0000214a  0000314a  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+115 .text.print_string 00000024  00002354  00002354  00003354  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+116 .text.print_uint64 00000080  00002378  00002378  00003378  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+117 .text.print_time 000000c4  000023f8  000023f8  000033f8  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+118 .text.outbyte 00000036  000024bc  000024bc  000034bc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+119 .text.malloc  0000000a  000024f2  000024f2  000034f2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+120 .text.free    0000000a  000024fc  000024fc  000034fc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+121 .text.memcpy  000000b6  00002506  00002506  00003506  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+122 .text._free_r 000000aa  000025bc  000025bc  000035bc  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+123 .text._malloc_r 000000d0  00002666  00002666  00003666  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+124 .text._sbrk_r 0000002c  00002736  00002736  00003736  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+125 .text.strlen  00000012  00002762  00002762  00003762  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+126 .text.__malloc_lock 00000002  00002774  00002774  00003774  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+127 .text.__malloc_unlock 00000002  00002776  00002776  00003776  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+128 .text.cleanup_glue 00000020  00002778  00002778  00003778  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+129 .text._reclaim_reent 000000c0  00002798  00002798  00003798  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+130 .text._sbrk   0000007e  00002858  00002858  00003858  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+131 .text.__errno 00000008  000028d6  000028d6  000038d6  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+132 .rodata.computeNextState 00000018  000028e0  000028e0  000038e0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+133 .rodata.xilProcessMsg 00000038  000028f8  000028f8  000038f8  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+134 .rodata.CSWTCH.18 0000000e  00002930  00002930  00003930  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+135 .rodata.rtIOStreamClose.str1.4 00000010  00002940  00002940  00003940  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+136 .rodata.rtIOStreamOpen.str1.4 00000010  00002950  00002950  00003950  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+137 .sdata2.rtM   00000004  00002960  00002960  00003960  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+138 .rodata.CA_Subsystem_ExpHW 0000004c  00002964  00002964  00003964  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+139 .rodata.str1.4 00000014  000029b0  000029b0  000039b0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+140 .rodata.caVerifyHWImpl.cst8 00000008  000029c8  000029c8  000039c8  2**3
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+141 .rodata.outnum.str1.4 00000014  000029d0  000029d0  000039d0  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+142 .rodata.xil_printf 00000150  000029e4  000029e4  000039e4  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+143 .rodata       0000013c  00002b34  00002b34  00003b34  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+144 .rodata._ctype_ 00000101  00002c70  00002c70  00003c70  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+145 .sdata2._global_impure_ptr 00000004  00002d74  00002d74  00003d74  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+146 .sdata.processMsgSuccess 00000004  00002d78  00002d78  00003d78  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+147 .sdata.realmin 00000010  00002d80  00002d80  00003d80  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+148 .sdata.denormalAsZero 00000008  00002d90  00002d90  00003d90  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+149 .sdata._dynfree 00000004  00002d98  00002d98  00003d98  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+150 .sdata._dynmalloc 00000004  00002d9c  00002d9c  00003d9c  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+151 .sdata.myadmins 00000004  00002da0  00002da0  00003da0  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+152 .tohost       00000048  00002dc0  00002dc0  00003dc0  2**6
+                  CONTENTS, ALLOC, LOAD, DATA
+153 .data.impure_data 00000060  00002e08  00002e08  00003e08  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+154 .sdata._impure_ptr 00000004  00002e68  00002e68  00003e68  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+155 .bss.align    00000000  00002e6c  00002e6c  00000000  2**0
+                  ALLOC
+156 .bss          00003ad4  00002e70  00002e70  00003e6c  2**3
+                  ALLOC
+157 .stack        00001000  00006944  00006944  00003e6c  2**0
+                  ALLOC
+158 .comment      00000022  00000000  00000000  00003e6c  2**0
+                  CONTENTS, READONLY
+159 .riscv.attributes 00000070  00000000  00000000  00003e8e  2**0
+                  CONTENTS, READONLY
+160 .debug_info   000020db  00000000  00000000  00003efe  2**0
+                  CONTENTS, READONLY, DEBUGGING
+161 .debug_abbrev 0000073e  00000000  00000000  00005fd9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+162 .debug_loc    00000ed3  00000000  00000000  00006717  2**0
+                  CONTENTS, READONLY, DEBUGGING
+163 .debug_aranges 00000078  00000000  00000000  000075ea  2**0
+                  CONTENTS, READONLY, DEBUGGING
+164 .debug_ranges 00000250  00000000  00000000  00007662  2**0
+                  CONTENTS, READONLY, DEBUGGING
+165 .debug_line   000012f6  00000000  00000000  000078b2  2**0
+                  CONTENTS, READONLY, DEBUGGING
+166 .debug_str    00000a0e  00000000  00000000  00008ba8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+167 .debug_frame  00000094  00000000  00000000  000095b8  2**2
+                  CONTENTS, READONLY, DEBUGGING

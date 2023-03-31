@@ -1,0 +1,26 @@
+{
+ "baseUrl":"support/slwebview_files",
+ "homeHid":2,
+ "initialElement":"",
+ "sections":[
+  {
+   "hid":1,
+   "sid":"SIL_Simulation_Parallel_Implementation",
+   "name":"SIL_Simulation_Parallel_Implementation",
+   "fullname":"SIL_Simulation_Parallel_Implementation",
+   "label":"SIL_Simulation_Parallel_Implementation*",
+   "parent":0,
+   "descendants":[
+    2
+   ],
+   "hierarchyUrl":"support/slwebview_files/SIL_Simulation_Parallel_Implementation_h_1.json",
+   "backingUrl":"support/slwebview_files/SIL_Simulation_Parallel_Implementation_m.json"
+  }
+ ],
+ "optViews":[
+ ],
+ "display":{
+  "informer":false
+ },
+ "iconsUrl":"support/slwebview_files/SIL_Simulation_Parallel_Implementation_6999_icons.css"
+}

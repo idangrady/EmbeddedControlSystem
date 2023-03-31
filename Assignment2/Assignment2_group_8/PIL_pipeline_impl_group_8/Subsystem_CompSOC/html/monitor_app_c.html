@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>RTW Report - monitor_app.c</title>
+<link rel="stylesheet" type="text/css" href="rtwreport.css"></link><script language="JavaScript" type="text/javascript" src="rtwreport_utils.js"></script>
+<SCRIPT type="text/javascript" language="JavaScript" src="slwebview.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="id_mapping.js"></SCRIPT>
+<SCRIPT type="text/javascript" src="rtwannotate.js"></SCRIPT>
+</head>
+<body bgcolor="#eeeeee" onload="try {if (top) { if (top.rtwFileOnLoad) top.rtwFileOnLoad(window.document); else local_onload();}} catch(err) {};if (typeof rtwannotate === 'function') {rtwannotate('monitor_app_c_cov.xml');}">
+<p>
+<table border="0" cellspacing="0" cellpadding="6" width="100%%" height="100%%"><tr><td width="100%%" valign="top" bgcolor="#ffffff">
+<h4>File: <a href="../../monitor_app.c" target="rtwreport_document_frame" id="linkToText_plain">monitor_app.c</a></h4>
+<pre id="RTWcode">
+<span><a class="LN" name="1">    1   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;monitor_app.h&gt;</font>
+</span><span><a class="LN" name="2">    2   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;memory_access.h&gt;</font>
+</span><span><a class="LN" name="3">    3   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;config.h&gt;</font>
+</span><span><a class="LN" name="4">    4   </a><font color="#992211">#</font><span class="PP">define</span> SEND_FROM_TILE_0_TO_TILE_2
+</span><span><a class="LN" name="5">    5   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;mapping.h&gt;</font>
+</span><span><a class="LN" name="6">    6   </a><font color="#992211">#</font><span class="PP">include</span> <font color="#992211">&lt;stdint.h&gt;</font>
+</span><span><a class="LN" name="7">    7   </a>
+</span><span><a class="LN" name="8">    8   </a><span class="CT">// rcv_img_data : input image from coppeliasim (input u1)</span>
+</span><span><a class="LN" name="9">    9   </a><span class="CT">// force        : output from controller (control action for acutation) (output y1)</span>
+</span><span><a class="LN" name="10">   10   </a><span class="CT">// force_lock   : force lock required for actuation (output y2)</span>
+</span><span><a class="LN" name="11">   11   </a><span class="CT">// counter      : input counter to the monitoring app block (input u2)</span>
+</span><span><a class="LN" name="12">   12   </a><span class="CT">// current_pos  : printing current position from monitoring app (output y3)</span>
+</span><span><a class="LN" name="13">   13   </a><span class="CT">// sensing_time : printing sample period (output y4)</span>
+</span><span><a class="LN" name="14">   14   </a>
+</span><span><a class="LN" name="15">   15   </a><span class="DT">void</span> <a name="fcn_monitor">monitor</a>(uint8_t rcv_img_data[IMG_SIZE], <span class="DT">float</span> force[1], uint8_t force_lock[1], uint32_t counter[1], <span class="DT">float</span> current_pos[2])
+</span><span><a class="LN" name="16">   16   </a><b>{</b>
+</span><span><a class="LN" name="17">   17   </a>    <span class="DT">static</span> uint32_t temp_counter    =   1;
+</span><span><a class="LN" name="18">   18   </a>    <span class="DT">static</span> uint8_t state            =   STATE_INIT_TILE_1;
+</span><span><a class="LN" name="19">   19   </a>    <span class="DT">static</span> <span class="DT">int</span> 	counter_frame[1]       = <b>{</b>0<b>}</b>;
+</span><span><a class="LN" name="20">   20   </a>    force_lock[0]                   =   UNLOCK;
+</span><span><a class="LN" name="21">   21   </a>    uint8_t forceLock_tile1;
+</span><span><a class="LN" name="22">   22   </a>    uint8_t forceLock_tile2;
+</span><span><a class="LN" name="23">   23   </a>    
+</span><span><a class="LN" name="24">   24   </a>    
+</span><span><a class="LN" name="25">   25   </a>    <span class="KW">switch</span> (state)
+</span><span><a class="LN" name="26">   26   </a>    <b>{</b>
+</span><span><a class="LN" name="27">   27   </a>        <span class="KW">case</span> STATE_INIT_TILE_1:
+</span><span><a class="LN" name="28">   28   </a>            
+</span><span><a class="LN" name="29">   29   </a>        <a href="memory_access_c.html#fcn_write_byte" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_byte');" target="_self"><font color="#1122aa">write_byte</font></a>(rcv_img_data, PICTURE_LOCATION_MEM_01, IMG_SIZE);
+</span><span><a class="LN" name="30">   30   </a>        <a href="memory_access_c.html#fcn_write_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_lock');" target="_self"><font color="#1122aa">write_lock</font></a>(LOCK, PICTURE_LOCK_LOCATION_MEM_01);
+</span><span><a class="LN" name="31">   31   </a>        
+</span><span><a class="LN" name="32">   32   </a>        state = STATE_INIT_TILE_2;
+</span><span><a class="LN" name="33">   33   </a>        <span class="KW">break</span>;
+</span><span><a class="LN" name="34">   34   </a>        
+</span><span><a class="LN" name="35">   35   </a>        <span class="KW">case</span> STATE_INIT_TILE_2:
+</span><span><a class="LN" name="36">   36   </a>            
+</span><span><a class="LN" name="37">   37   </a>        <a href="memory_access_c.html#fcn_write_byte" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_byte');" target="_self"><font color="#1122aa">write_byte</font></a>(rcv_img_data, PICTURE_LOCATION_MEM_02, IMG_SIZE);
+</span><span><a class="LN" name="38">   38   </a>        <a href="memory_access_c.html#fcn_write_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_lock');" target="_self"><font color="#1122aa">write_lock</font></a>(LOCK, PICTURE_LOCK_LOCATION_MEM_02);
+</span><span><a class="LN" name="39">   39   </a>        
+</span><span><a class="LN" name="40">   40   </a>        state = STATE_TILE_1;
+</span><span><a class="LN" name="41">   41   </a>        <span class="KW">break</span>;
+</span><span><a class="LN" name="42">   42   </a>        
+</span><span><a class="LN" name="43">   43   </a>     	<span class="KW">case</span> STATE_TILE_1:
+</span><span><a class="LN" name="44">   44   </a>            
+</span><span><a class="LN" name="45">   45   </a>        <a href="memory_access_c.html#fcn_write_byte" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_byte');" target="_self"><font color="#1122aa">write_byte</font></a>(rcv_img_data, PICTURE_LOCATION_MEM_01, IMG_SIZE);
+</span><span><a class="LN" name="46">   46   </a>        <a href="memory_access_c.html#fcn_write_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_lock');" target="_self"><font color="#1122aa">write_lock</font></a>(LOCK, PICTURE_LOCK_LOCATION_MEM_01);
+</span><span><a class="LN" name="47">   47   </a>        forceLock_tile1 = <a href="memory_access_c.html#fcn_read_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_read_lock');" target="_self"><font color="#1122aa">read_lock</font></a>(FORCE_LOCK_LOCATION_MEM_01);
+</span><span><a class="LN" name="48">   48   </a>        <span class="KW">if</span> (forceLock_tile1 == LOCK)
+</span><span><a class="LN" name="49">   49   </a>        <b>{</b>
+</span><span><a class="LN" name="50">   50   </a>            <a href="memory_access_c.html#fcn_read_float" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_read_float');" target="_self"><font color="#1122aa">read_float</font></a>(force, FORCE_LOCATION_MEM_01, 1);
+</span><span><a class="LN" name="51">   51   </a>            <a href="memory_access_c.html#fcn_write_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_lock');" target="_self"><font color="#1122aa">write_lock</font></a>(UNLOCK, FORCE_LOCK_LOCATION_MEM_01);
+</span><span><a class="LN" name="52">   52   </a>
+</span><span><a class="LN" name="53">   53   </a>            force_lock[0] = LOCK;
+</span><span><a class="LN" name="54">   54   </a>
+</span><span><a class="LN" name="55">   55   </a>        <b>}</b>
+</span><span><a class="LN" name="56">   56   </a>        state = STATE_TILE_2;
+</span><span><a class="LN" name="57">   57   </a>        <span class="KW">break</span>;
+</span><span><a class="LN" name="58">   58   </a>    
+</span><span><a class="LN" name="59">   59   </a>        <span class="KW">case</span> STATE_TILE_2:
+</span><span><a class="LN" name="60">   60   </a>        
+</span><span><a class="LN" name="61">   61   </a>        <a href="memory_access_c.html#fcn_write_byte" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_byte');" target="_self"><font color="#1122aa">write_byte</font></a>(rcv_img_data, PICTURE_LOCATION_MEM_02, IMG_SIZE);
+</span><span><a class="LN" name="62">   62   </a>        <a href="memory_access_c.html#fcn_write_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_lock');" target="_self"><font color="#1122aa">write_lock</font></a>(LOCK, PICTURE_LOCK_LOCATION_MEM_02);
+</span><span><a class="LN" name="63">   63   </a>        
+</span><span><a class="LN" name="64">   64   </a>        forceLock_tile2 = <a href="memory_access_c.html#fcn_read_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_read_lock');" target="_self"><font color="#1122aa">read_lock</font></a>(FORCE_LOCK_LOCATION_MEM_02);
+</span><span><a class="LN" name="65">   65   </a>        <span class="KW">if</span> (forceLock_tile2 == LOCK)
+</span><span><a class="LN" name="66">   66   </a>        <b>{</b>
+</span><span><a class="LN" name="67">   67   </a>            <a href="memory_access_c.html#fcn_read_float" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_read_float');" target="_self"><font color="#1122aa">read_float</font></a>(force, FORCE_LOCATION_MEM_02, 1);
+</span><span><a class="LN" name="68">   68   </a>            <a href="memory_access_c.html#fcn_write_lock" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_write_lock');" target="_self"><font color="#1122aa">write_lock</font></a>(UNLOCK, FORCE_LOCK_LOCATION_MEM_02);
+</span><span><a class="LN" name="69">   69   </a>
+</span><span><a class="LN" name="70">   70   </a>            force_lock[0] = LOCK;
+</span><span><a class="LN" name="71">   71   </a>
+</span><span><a class="LN" name="72">   72   </a>        <b>}</b>
+</span><span><a class="LN" name="73">   73   </a>        state = STATE_TILE_1;
+</span><span><a class="LN" name="74">   74   </a>        <span class="KW">break</span>;
+</span><span><a class="LN" name="75">   75   </a>    <b>}</b>
+</span><span><a class="LN" name="76">   76   </a>    
+</span><span><a class="LN" name="77">   77   </a>    <a href="memory_access_c.html#fcn_read_float" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_read_float');" target="_self"><font color="#1122aa">read_float</font></a>(current_pos, CURRENT_POS_LOCATION_MEM_01, 1);
+</span><span><a class="LN" name="78">   78   </a>    <a href="memory_access_c.html#fcn_read_float" onclick="if (top) if (top.docHiliteMe) top.docHiliteMe(window, 'fcn_read_float');" target="_self"><font color="#1122aa">read_float</font></a>(current_pos+1, CURRENT_POS_LOCATION_MEM_02, 1);
+</span><span><a class="LN" name="79">   79   </a>    
+</span><span><a class="LN" name="80">   80   </a><b>}</b></pre>
+</td></tr></table>
+</p>
+</body>
+</html>
