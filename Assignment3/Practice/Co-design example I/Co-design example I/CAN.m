@@ -32,6 +32,7 @@ end
 
 blocking_period
 
+
 for task = 1:number_of_tasks
     busy_period(task) = T(task,3);     
     while(1)
@@ -55,14 +56,14 @@ for task = 1:number_of_tasks
     if busy_period(task) <= T(task,1)
        R(task) =  busy_period(task);
     else 
-        Qm = ceil(busy_period(task)/T(task,1));
-        for i=1:Qm
-            Response_Time(i) = blocking_period(task) + (i-1)*T(task,3);
+        Qm = ceil(busy_period(task)/T(task,1)); % maximum number of times the task can be executed within the busy period
+        for i=1:Qm % we are iterating over the number of times the task can be executed within the busy period.
+            Response_Time(i) = blocking_period(task) + (i-1)*T(task,3); % Here, (i-1) represents the number of preceding tasks that have already arrived before task i
             while(1)
                 R_pre = Response_Time(i);
                 HP_waiting = 0;
                 for j = 1:number_of_tasks
-                    if (T(j,4)<T(task,4))
+                    if (T(j,4)<T(task,4)) % amount of time that the task with the current index (j) has been delayed by higher-priority tasks.
                         HP_waiting = HP_waiting + ceil((Response_Time(i)+tau_res)/T(j,1))*T(j,3);           
                     end 
                 end
