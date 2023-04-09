@@ -1,0 +1,283 @@
+<?xml version='1.0' ?>
+<cs2:chronsimproject xmlns:cs2="http://www.inchron.com/inchron-2.9.2.xsd" xsi:schemaLocation="http://www.inchron.com/inchron-2.9.2.xsd" version="2.0" uuid="{e09c2f2f-9be1-483b-9567-5523504b89e0}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+   <general>
+      <dir>C:\Users\gebruiker</dir>
+      <savedir>D:\GitHub\EmbeddedControlSystem\Assignment3\Tuturial</savedir>
+      <name>new project</name>
+      <version></version>
+      <description>
+         <comment></comment>
+         <creation>2023-04-06T10:27:13</creation>
+         <modification>2023-04-06T12:03:32</modification>
+      </description>
+      <last-modified>2023-04-06T14:07:56</last-modified>
+      <author></author>
+      <email></email>
+      <creator build="20200828A" version="2.9.2" />
+      <omitdiagrams stack="false" callnesting="false" impliciteventchains="false" />
+   </general>
+   <specification>
+      <specsettings>
+         <includepath>$INSTALL\lib</includepath>
+         <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+      </specsettings>
+      <autosar>
+         <rootcomposition uid="|P:new project|ASWCI:Autosar Application Instance" name="Autosar Application Instance" />
+      </autosar>
+   </specification>
+   <allocation exactness="50" >
+      <resourcetype library="$INSTALL\models\generic-multicore.ism" type="generic" name="Core1" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{dfe24be8-3dd3-407d-844b-2ac5babadb2a}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:27:58</creation>
+                  <modification>2023-04-06T10:27:58</modification>
+               </description>
+               <scheduler strategy="first_in, first" offset="0 us" cycle="0 us" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="1" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{d84c659f-9fb2-4887-8478-825f72442cd9}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-06T10:27:58</creation>
+                     <modification>2023-04-06T10:27:58</modification>
+                  </description>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="A" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="11" priority="0" extendedtask="0" jitter="0 us" wcet="10 ms" uuid="{9577c848-9b33-4cb6-832f-02e22cc37b93}" name="|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" deadline="0 us" slot="0 us" bcet="10 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-06T10:32:05</creation>
+                           <modification>2023-04-06T10:32:05</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="B" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="11" priority="0" extendedtask="0" jitter="0 us" wcet="20 ms" uuid="{42716f03-cfc4-44bb-bb0f-aea41935f23c}" name="|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:B" deadline="0 us" slot="0 us" bcet="20 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-06T10:32:38</creation>
+                           <modification>2023-04-06T10:32:38</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="10 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{eedae9bf-4fcf-4553-91fa-77de4b0cfdb4}" name="Core1" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T10:27:58</creation>
+               <modification>2023-04-06T10:29:05</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>true</support>
+               <editable>true</editable>
+               <physical>2</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{d05042a9-43b1-4c40-8d44-1e09037837a3}" name="Core 0" />
+               <core uuid="{05b64669-3252-444b-88a7-5353e2a11e4c}" name="Core 1" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <segmentmap uuid="{f4bb7469-7d10-4d27-a7f3-0c2fec0e2107}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:29:05</creation>
+                  <modification>2023-04-06T10:29:05</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:Core1|Clk:Core1" uuid="{e4f25df7-bc16-4713-aea6-068abe004261}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:27:58</creation>
+                  <modification>2023-04-06T10:28:09</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <resourcetype library="$INSTALL\models\generic-multicore.ism" type="generic" name="Core2" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{76d3f7f7-019c-4cad-acc5-2cfaa2c3987c}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:28:12</creation>
+                  <modification>2023-04-06T10:28:12</modification>
+               </description>
+               <scheduler strategy="first_in, first" offset="0 us" cycle="0 us" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="1" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{fc6ac939-5de7-4ee5-9643-595b23471992}" allowed_types="4294967295" timeslice="10 ms" name="B" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-06T10:28:12</creation>
+                     <modification>2023-04-06T10:28:12</modification>
+                  </description>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{8b5452f9-32e3-4112-ba8b-e2009229de4c}" name="Core2" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T10:28:12</creation>
+               <modification>2023-04-06T10:29:13</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>true</support>
+               <editable>true</editable>
+               <physical>2</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{150ea2fd-38d9-42c9-b04d-3be26e775cc6}" name="Core 0" />
+               <core uuid="{a8ed6277-dcd8-4032-a6cd-c2d2d3c63911}" name="Core 1" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <segmentmap uuid="{86901ae4-7ecf-4394-97a7-a83353f18d3b}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:29:13</creation>
+                  <modification>2023-04-06T10:29:13</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:Core2|Clk:Core2" uuid="{e9cfc3ab-fec2-4320-96e5-f11c0154a70f}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:28:12</creation>
+                  <modification>2023-04-06T10:28:19</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+   </allocation>
+   <mapping>
+      <map>
+         <source>|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:A</source>
+         <target>|P:new project|RI:Core1</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:B</source>
+         <target>|P:new project|RI:Core1</target>
+      </map>
+   </mapping>
+   <components/>
+   <estimationoverride/>
+   <clockcounter/>
+   <stimulation>
+      <scenario uuid="{5634dd43-1038-4f50-9d2f-4bddaa5f6cb7}" name="NewScenario" default="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-06T10:41:26</creation>
+            <modification>2023-04-06T10:42:10</modification>
+         </description>
+         <description></description>
+         <generator clock="|P:new project|RI:Core1|Clk:Core1" type="peripheral" uuid="{711ce147-651b-4b99-bb81-1555399f84e8}" id="1" >
+            <process name="|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" />
+            <time period="40 ms" periodic="1" iterations="0" first="0 us" relative="false" />
+            <random param1="0 us" param2="0 us" type="None" param3="0 us" param4="0 us" />
+            <limitation minSeparationTime="0 us" />
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T10:41:32</creation>
+               <modification>2023-04-06T10:41:45</modification>
+            </description>
+            <loss probability="0" />
+         </generator>
+      </scenario>
+   </stimulation>
+   <communication/>
+   <synchronization/>
+   <requirements uuid="{ff48902c-5da5-4f0a-91f8-76c49c71a051}" />
+   <dependencygraph>
+      <dependency name="conn_A_B" >
+         <node name="|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:Core1|SI:ISRScheduler|SI:DefaultScheduler|SI:B" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+   </dependencygraph>
+   <report>
+      <types csv="true" ipr="false" cvr="false" html="true" />
+      <flags requirementhistogram="false" cpu="true" flexraymessage="true" requirementtime="false" requirement="false" function="true" transfercounter="true" functionhistogram="true" ecreqnettime="false" process="true" waitendsexecution="false" calltree="false" processhistogram="true" functiontime="false" canmessage="true" />
+      <timerange end="inf" start="0 us" enabled="false" />
+      <splitevent name="INCHRON_REPORT_SPLIT" enabled="false" />
+      <functionalcorrectnessevent name="INCHRON_FUNCTIONAL_CORRECT" enabled="false" />
+      <name></name>
+      <dir>report</dir>
+      <template>builtin</template>
+      <maxcalldepth>100</maxcalldepth>
+      <exclude/>
+      <hiddenprocesses></hiddenprocesses>
+   </report>
+   <optsettings simtime="500 ms" evaluation="chronVAL" >
+      <algorithm name="chronOPT" />
+      <parameter key="lengthTabuList" value="25" />
+      <parameter key="maxNeighborhood" value="5" />
+      <objective target="|P:new project" priority="0" type="1" />
+      <objective target="|P:new project" priority="1" type="3" />
+      <objective target="|P:new project" priority="2" type="4" />
+      <freedom isactive="true" target="|P:new project" type="0" />
+      <freedom isactive="true" target="|P:new project" type="1" />
+      <haltconditions haltnoimprovement="50" rankbelow="1" iterations="200" haltnoimprovefor="true" haltafter="true" haltrankbelow="true" />
+   </optsettings>
+   <toolsettings>
+      <viewprofile active="true" name="default" />
+      <setting type="SimulatorWindow" >
+         <window width="1819" x="-9" y="198" height="1162" fullscreen="0" maximized="1" />
+         <checkStack value="false" />
+         <checkTiming value="false" />
+         <checkNesting value="false" />
+         <checkRecursion value="false" />
+         <checkRTOSFail value="false" />
+         <checkAssertFail value="false" />
+         <checkRequirementFail value="false" />
+         <breakAt value="false" />
+         <runFor value="false" time="" />
+         <breakEvent value="false" />
+      </setting>
+      <setting type="Editor" >
+         <TreeViewFoldingState>
+            <entry iscollapsed="true" key="{9577c848-9b33-4cb6-832f-02e22cc37b93}" />
+         </TreeViewFoldingState>
+      </setting>
+   </toolsettings>
+</cs2:chronsimproject>

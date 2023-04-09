@@ -1,0 +1,458 @@
+<?xml version='1.0' ?>
+<cs2:chronsimproject xmlns:cs2="http://www.inchron.com/inchron-2.9.2.xsd" xsi:schemaLocation="http://www.inchron.com/inchron-2.9.2.xsd" version="2.0" uuid="{b45697dd-a41f-4458-85bd-8d72348aa594}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+   <general>
+      <dir>C:\Users\gebruiker</dir>
+      <savedir>D:\GitHub\EmbeddedControlSystem\Assignment3\Tuturial</savedir>
+      <name>V1</name>
+      <version></version>
+      <description>
+         <comment></comment>
+         <creation>2023-04-06T12:07:56</creation>
+         <modification>2023-04-06T13:59:09</modification>
+      </description>
+      <last-modified>2023-04-06T16:01:01</last-modified>
+      <author></author>
+      <email></email>
+      <creator build="20200828A" version="2.9.2" />
+      <omitdiagrams stack="false" callnesting="false" impliciteventchains="false" />
+   </general>
+   <specification>
+      <specsettings>
+         <includepath>$INSTALL\lib</includepath>
+         <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+      </specsettings>
+      <autosar>
+         <rootcomposition uid="|P:V1|ASWCI:Autosar Application Instance" name="Autosar Application Instance" />
+      </autosar>
+   </specification>
+   <allocation exactness="50" >
+      <resourcetype library="$INSTALL\models\generic.ism" type="generic" name="R1" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{77dec12b-0ccf-4726-ba77-f4f4a5d83fb9}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T12:23:46</creation>
+                  <modification>2023-04-06T12:23:46</modification>
+               </description>
+               <scheduler strategy="first_in, first" offset="0 us" cycle="0 us" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{321fc3af-034e-406e-9e67-46363e779259}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-06T12:23:46</creation>
+                     <modification>2023-04-06T12:23:46</modification>
+                  </description>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="A" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="10 ms" uuid="{09feec30-9860-491f-85a5-4fd838062dc4}" name="|P:V1|RI:R1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" deadline="0 us" slot="0 us" bcet="10 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-06T12:23:58</creation>
+                           <modification>2023-04-06T12:23:58</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{42c44b78-0cad-4eb7-b3e1-5250baf3d9d3}" name="R1" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T12:23:46</creation>
+               <modification>2023-04-06T12:23:49</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{b80a2576-be04-41e2-a063-2cdc1b4a890e}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="1" pAllowPassiveToActive="1" base="0x100" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="true" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{0b89445d-4139-436c-a53b-e0a18440c7b7}" name="FlexRay_Bus" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T13:18:29</creation>
+                  <modification>2023-04-06T13:18:29</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{aaedc1b4-7cbc-49ad-81d3-4d93a1436214}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-06T13:18:30</creation>
+                     <modification>2023-04-06T13:18:30</modification>
+                  </description>
+                  <busmessage channel="0" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="100" jitter="0 us" wcet="21 us" uuid="{159aa35e-a83e-4b3a-b830-0bac36ed8001}" name="Dynamic" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="7.988 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-06T13:55:24</creation>
+                        <modification>2023-04-06T13:55:24</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="1" jitter="0 us" wcet="24.036 us" uuid="{61953257-f07c-4e18-b41a-7dd29844107b}" name="Sync" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-06T13:35:18</creation>
+                        <modification>2023-04-06T13:35:18</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{70fe8992-c13d-4909-828c-c67795616970}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T12:23:46</creation>
+                  <modification>2023-04-06T12:23:46</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:V1|RI:R1|Clk:R1" uuid="{6846e40d-5d35-406e-9d18-0145b20bfd91}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T12:23:46</creation>
+                  <modification>2023-04-06T12:23:49</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <resourcetype library="$INSTALL\models\generic.ism" type="generic" name="R2" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{75f1bdf9-2fb9-409d-aded-8572f4efe8e1}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T12:23:52</creation>
+                  <modification>2023-04-06T12:23:52</modification>
+               </description>
+               <scheduler strategy="first_in, first" offset="0 us" cycle="0 us" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{655c542d-ea63-4030-9ec7-0adcf013f89d}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-06T12:23:52</creation>
+                     <modification>2023-04-06T12:23:52</modification>
+                  </description>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="B" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="20 ms" uuid="{08bbcf7a-6672-4db0-a528-29d2be01051d}" name="|P:V1|RI:R2|SI:ISRScheduler|SI:DefaultScheduler|SI:B" deadline="0 us" slot="0 us" bcet="20 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-06T12:24:10</creation>
+                           <modification>2023-04-06T12:24:10</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="10 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{1f8a4c9b-8338-4085-9440-6896a9d0c4fd}" name="R2" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T12:23:52</creation>
+               <modification>2023-04-06T12:23:54</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{d7a779d0-c4b6-4e54-bfe5-3fd51cc1477b}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="2" pAllowPassiveToActive="1" base="0x200" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{87a6c78f-023b-4c9e-905f-d1f4027df4a1}" name="FlexRay_Bus" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T13:18:53</creation>
+                  <modification>2023-04-06T13:18:53</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{343de4b9-f2f3-4afc-b017-b7440bec7691}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-06T13:18:53</creation>
+                     <modification>2023-04-06T13:18:53</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="2" jitter="0 us" wcet="24.036 us" uuid="{b23ab516-a3a3-4952-8258-9a932ee95317}" name="Sync" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-06T13:38:32</creation>
+                        <modification>2023-04-06T13:38:32</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{4a350470-56a3-42a4-a401-8aa74c09607a}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T12:23:52</creation>
+                  <modification>2023-04-06T12:23:52</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:V1|RI:R2|Clk:R2" uuid="{7700adfb-98d2-46c9-8261-387d1462f485}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T12:23:52</creation>
+                  <modification>2023-04-06T12:23:54</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <peripheral gSyncNodeMax="10" gMacroPerCycle="5000" speed="f10MBit" base="0x0" gColdstartAttempts="31" gdDynamicSlotIdlePhase="1" gPayloadLengthStatic="8" fabric="11" gdStaticSlot="34" gdNit="100" gdMinislotActionPointOffset="3" gMaxWithoutClockCorrectionFatal="6" gMaxWithoutClockCorrectionPassive="3" gdMacrotick="1" uuid="{5e83115b-4ffc-44f3-a088-64b64ff5cb6f}" gdTSSTransmitter="15" gdMiniSlot="7" name="FlexRay_Bus" gNumberOfStaticSlots="89" gdActionPointOffset="3" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-06T13:12:49</creation>
+            <modification>2023-04-06T13:12:49</modification>
+            <targetperipheral></targetperipheral>
+         </description>
+         <clock gran_unit="ns" range_value="0" start_unit="us" gran_value="10" drift_value="0" range_unit="us" id="|P:V1|Prp:FlexRay_Bus|Clk:FlexRayBusClock" uuid="{263ea5df-4808-47a1-943b-b2e1cdfad331}" start_value="0" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T13:12:49</creation>
+               <modification>2023-04-06T13:12:49</modification>
+            </description>
+            <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+         </clock>
+      </peripheral>
+   </allocation>
+   <mapping>
+      <map>
+         <source>|P:V1|RI:R1|SI:ISRScheduler|SI:DefaultScheduler|SI:A</source>
+         <target>|P:V1|RI:R1</target>
+      </map>
+      <map>
+         <source>|P:V1|RI:R2|SI:ISRScheduler|SI:DefaultScheduler|SI:B</source>
+         <target>|P:V1|RI:R2</target>
+      </map>
+      <connection>
+         <target>|P:V1|Prp:FlexRay_Bus|Prt:Channel A</target>
+         <connect>|P:V1|RI:R1|Prp:FlexRay_Bus|Prt:Channel A</connect>
+         <connect>|P:V1|RI:R2|Prp:FlexRay_Bus|Prt:Channel A</connect>
+      </connection>
+      <connection>
+         <target>|P:V1|Prp:FlexRay_Bus|Prt:Channel B</target>
+         <connect>|P:V1|RI:R1|Prp:FlexRay_Bus|Prt:Channel B</connect>
+         <connect>|P:V1|RI:R2|Prp:FlexRay_Bus|Prt:Channel B</connect>
+      </connection>
+   </mapping>
+   <components/>
+   <estimationoverride/>
+   <clockcounter/>
+   <stimulation>
+      <scenario uuid="{7bc51252-84da-4b1c-9540-e353de1852e1}" name="NewScenario" default="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-06T12:12:41</creation>
+            <modification>2023-04-06T12:15:37</modification>
+         </description>
+         <description></description>
+         <generator clock="|P:V1|RI:R1|Clk:R1" type="peripheral" uuid="{60ae1a5d-a8a4-4535-b53b-5e983ad8822e}" id="1" >
+            <process name="|P:V1|RI:R1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" />
+            <time period="40 ms" periodic="1" iterations="0" first="0 us" relative="false" />
+            <random param1="0 us" param2="0 us" type="None" param3="0 us" param4="0 us" />
+            <limitation minSeparationTime="0 us" />
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T12:13:01</creation>
+               <modification>2023-04-06T12:13:29</modification>
+            </description>
+            <loss probability="0" />
+         </generator>
+      </scenario>
+   </stimulation>
+   <communication/>
+   <synchronization/>
+   <requirements uuid="{b4cac8e6-3379-4d5f-8e91-59f7fc5f76b0}" >
+      <eventchain uuid="{ecdcdb63-721f-4bb6-afa8-cbf9c5d3c766}" name="EventChain" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-06T13:58:21</creation>
+            <modification>2023-04-06T13:58:21</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:V1|RI:R1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_A_B" />
+            </step>
+            <step node="|P:V1|RI:R2|SI:ISRScheduler|SI:DefaultScheduler|SI:B" joins="false" id="1" streamed="false" />
+         </steps>
+      </eventchain>
+   </requirements>
+   <dependencygraph>
+      <dependency name="conn_A_Dynamic" >
+         <node name="|P:V1|RI:R1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:V1|RI:R1|Prp:FlexRay_Bus|SI:FlexRayMessages|SI:Dynamic" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Dynamic_B" >
+         <node name="|P:V1|RI:R1|Prp:FlexRay_Bus|SI:FlexRayMessages|SI:Dynamic" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:V1|RI:R2|SI:ISRScheduler|SI:DefaultScheduler|SI:B" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_A_B" >
+         <node name="|P:V1|RI:R1|SI:ISRScheduler|SI:DefaultScheduler|SI:A" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:V1|RI:R2|SI:ISRScheduler|SI:DefaultScheduler|SI:B" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+   </dependencygraph>
+   <report>
+      <types csv="true" ipr="false" cvr="false" html="true" />
+      <flags requirementhistogram="false" cpu="true" flexraymessage="true" requirementtime="false" requirement="false" function="true" transfercounter="true" functionhistogram="true" ecreqnettime="false" process="true" waitendsexecution="false" calltree="false" processhistogram="true" functiontime="false" canmessage="true" />
+      <timerange end="inf" start="0 us" enabled="false" />
+      <splitevent name="INCHRON_REPORT_SPLIT" enabled="false" />
+      <functionalcorrectnessevent name="INCHRON_FUNCTIONAL_CORRECT" enabled="false" />
+      <name></name>
+      <dir>report</dir>
+      <template>builtin</template>
+      <maxcalldepth>100</maxcalldepth>
+      <exclude/>
+      <hiddenprocesses></hiddenprocesses>
+   </report>
+   <optsettings simtime="500 ms" evaluation="chronVAL" >
+      <algorithm name="chronOPT" />
+      <parameter key="lengthTabuList" value="25" />
+      <parameter key="maxNeighborhood" value="5" />
+      <objective target="|P:V1" priority="0" type="1" />
+      <objective target="|P:V1" priority="1" type="3" />
+      <objective target="|P:V1" priority="2" type="4" />
+      <freedom isactive="true" target="|P:V1" type="0" />
+      <freedom isactive="true" target="|P:V1" type="1" />
+      <haltconditions haltnoimprovement="50" rankbelow="1" iterations="200" haltnoimprovefor="true" haltafter="true" haltrankbelow="true" />
+   </optsettings>
+   <toolsettings>
+      <viewprofile active="true" name="default" >
+         <setting type="EnvironmentControl" >
+            <visible value="false" />
+         </setting>
+         <setting type="ProcessStateView" >
+            <visible value="true" />
+            <diagram height="89" showdetails="false" name="Load:R1:R1" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <diagram height="89" showdetails="false" name="Load:R2:R2" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <autoDiagramHeight value="true" />
+            <diagram height="89" showdetails="false" name="A:R1" visible="true" />
+            <diagram height="89" showdetails="false" name="B:R2" visible="true" />
+            <diagram height="89" showdetails="false" name="ChannelA:FlexRay_Bus" visible="true" />
+            <diagram height="89" showdetails="false" name="ChannelB:FlexRay_Bus" visible="true" />
+            <eventchains/>
+            <time value="0 us" />
+         </setting>
+         <setting type="EventChainVisibility" >
+            <visible value="false" />
+         </setting>
+      </viewprofile>
+      <setting type="SimulatorWindow" >
+         <window width="1060" x="29" y="219" height="695" fullscreen="0" maximized="0" />
+      </setting>
+      <setting type="EventSpectrumPlot" />
+      <setting type="ResponseTimeCompositionWindow" >
+         <window width="1145" x="209" y="262" height="800" fullscreen="0" maximized="0" />
+      </setting>
+      <laststored>
+         <viewprofile active="true" name="default" />
+         <setting type="SimulatorWindow" >
+            <window width="1060" x="29" y="219" height="695" fullscreen="0" maximized="0" />
+         </setting>
+         <setting type="EventSpectrumPlot" />
+         <setting type="ResponseTimeCompositionWindow" >
+            <window width="800" x="402" y="193" height="800" fullscreen="0" maximized="0" />
+         </setting>
+      </laststored>
+      <setting type="Editor" >
+         <TreeViewFoldingState>
+            <entry iscollapsed="false" key="{61953257-f07c-4e18-b41a-7dd29844107b}" />
+            <entry iscollapsed="false" key="{159aa35e-a83e-4b3a-b830-0bac36ed8001}" />
+            <entry iscollapsed="true" key="{87a6c78f-023b-4c9e-905f-d1f4027df4a1}" />
+            <entry iscollapsed="false" key="{b45697dd-a41f-4458-85bd-8d72348aa594}/EventChains" />
+            <entry iscollapsed="false" key="{42c44b78-0cad-4eb7-b3e1-5250baf3d9d3}/Peripherals" />
+            <entry iscollapsed="false" key="{1f8a4c9b-8338-4085-9440-6896a9d0c4fd}/Peripherals" />
+            <entry iscollapsed="false" key="{b45697dd-a41f-4458-85bd-8d72348aa594}/Buses" />
+         </TreeViewFoldingState>
+      </setting>
+   </toolsettings>
+</cs2:chronsimproject>

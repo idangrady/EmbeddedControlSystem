@@ -1,0 +1,2 @@
+do 6. apr 12:21:32 2023: SemanticAnalysis: Started
+do 6. apr 12:21:32 2023: SemanticAnalysis: Done.
