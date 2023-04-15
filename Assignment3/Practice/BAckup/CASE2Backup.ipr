@@ -1,0 +1,2267 @@
+<?xml version='1.0' ?>
+<cs2:chronsimproject xmlns:cs2="http://www.inchron.com/inchron-2.9.2.xsd" xsi:schemaLocation="http://www.inchron.com/inchron-2.9.2.xsd" version="2.0" uuid="{e09c2f2f-9be1-483b-9567-5523504b89e0}" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+   <general>
+      <dir>C:\Users\gebruiker</dir>
+      <sourceipr>D:\GitHub\EmbeddedControlSystem\Assignment3\Project\BAckup\CASE2Backup.ipr</sourceipr>
+      <savedir>D:\GitHub\EmbeddedControlSystem\Assignment3\Project\BAckup</savedir>
+      <name>new project</name>
+      <version></version>
+      <description>
+         <comment></comment>
+         <creation>2023-04-06T10:27:13</creation>
+         <modification>2023-04-14T14:57:51</modification>
+      </description>
+      <last-modified>2023-04-14T16:57:52</last-modified>
+      <author></author>
+      <email></email>
+      <creator build="20200828A" version="2.9.2" />
+      <omitdiagrams stack="false" callnesting="false" impliciteventchains="false" />
+   </general>
+   <specification>
+      <anddependency uid="|P:new project|RI:P3|AND:AND_Gyro" name="AND_Gyro" parentuid="|P:new project|RI:P3" />
+      <anddependency uid="|P:new project|RI:P3|AND:AND_planning" name="AND_planning" parentuid="|P:new project|RI:P3" />
+      <anddependency uid="|P:new project|RI:P4|AND:AND_Departure" name="AND_Departure" parentuid="|P:new project|RI:P4" />
+      <anddependency uid="|P:new project|RI:P5|AND:AND_steerngAssist" name="AND_steerngAssist" parentuid="|P:new project|RI:P5" />
+      <specsettings>
+         <includepath>$INSTALL\lib</includepath>
+         <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+      </specsettings>
+      <autosar>
+         <rootcomposition uid="|P:new project|ASWCI:Autosar Application Instance" name="Autosar Application Instance" />
+      </autosar>
+   </specification>
+   <allocation exactness="50" >
+      <resourcetype library="$INSTALL\models\generic.ism" type="generic" name="P1" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{dfe24be8-3dd3-407d-844b-2ac5babadb2a}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:27:58</creation>
+                  <modification>2023-04-06T10:27:58</modification>
+               </description>
+               <scheduler strategy="TDMA" offset="0 us" cycle="86 ms" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="1" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{01b03136-f9a5-4a4c-93bc-3cf3ccd95a7d}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" tdmaperiod="87 ms" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-13T18:12:11</creation>
+                     <modification>2023-04-13T18:12:11</modification>
+                  </description>
+                  <scheduletable>
+                     <schedulable order="0" uid="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" slot="4 ms" />
+                     <schedulable order="1" uid="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" slot="80 ms" />
+                     <schedulable order="2" uid="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" slot="1.5 ms" />
+                     <schedulable order="3" uid="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" slot="500 us" />
+                  </scheduletable>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Braking" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="500 us" uuid="{4e068762-e48a-4755-8311-3ebe7697b8e7}" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" deadline="0 us" slot="0 us" bcet="500 us" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:19:54</creation>
+                           <modification>2023-04-13T12:19:54</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="250 us" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="EmergencyBracking" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="1.5 ms" uuid="{52ca4cd7-d928-45f1-9097-11270b1911b5}" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" deadline="0 us" slot="0 us" bcet="1.5 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:05:47</creation>
+                           <modification>2023-04-13T12:05:47</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Front_Camera" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="4 ms" uuid="{9577c848-9b33-4cb6-832f-02e22cc37b93}" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" deadline="0 us" slot="0 us" bcet="4 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-06T10:32:05</creation>
+                           <modification>2023-04-06T10:32:05</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Image_processing" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="80 ms" uuid="{75934316-c9d7-4e58-bb9e-95a789a6c466}" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" deadline="0 us" slot="0 us" bcet="80 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T11:49:02</creation>
+                           <modification>2023-04-13T11:49:02</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="44.5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{eedae9bf-4fcf-4553-91fa-77de4b0cfdb4}" name="P1" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T10:27:58</creation>
+               <modification>2023-04-14T11:46:03</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{d05042a9-43b1-4c40-8d44-1e09037837a3}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="1" pAllowPassiveToActive="1" base="0x100" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="true" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{96545b01-5cfc-4782-b454-ab3307b86848}" name="FLEX" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T13:06:47</creation>
+                  <modification>2023-04-14T13:06:47</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{8788feed-5cfa-48ac-aeb7-de242b68d654}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T13:06:47</creation>
+                     <modification>2023-04-14T13:06:47</modification>
+                  </description>
+                  <busmessage channel="0" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="2" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="100" jitter="0 us" wcet="21 us" uuid="{35a3ecff-9612-4fd6-88b9-8833a1c38304}" name="Image_Dash" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="9.985 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:18:52</creation>
+                        <modification>2023-04-14T13:18:52</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+                  <busmessage channel="0" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="2" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="90" jitter="0 us" wcet="21 us" uuid="{71f5b673-ba56-45c6-a626-f30f839d9529}" name="Image_Departure" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="9.985 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:31:38</creation>
+                        <modification>2023-04-14T13:31:38</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+                  <busmessage channel="0" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="2" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="108" jitter="0 us" wcet="21 us" uuid="{b1344a52-482d-46d6-8861-8b6ef0953be1}" name="Image_motion" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="9.985 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:25:35</creation>
+                        <modification>2023-04-14T13:25:35</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="1" jitter="0 us" wcet="24.036 us" uuid="{0d553af0-a1ae-40cb-ab0a-ec4e93c94cdb}" name="SYNC" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:15:45</creation>
+                        <modification>2023-04-14T13:15:45</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{156308fd-dd5e-4638-9896-b910bc8d33d5}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T17:41:30</creation>
+                  <modification>2023-04-13T17:41:30</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:P1|Clk:P1" uuid="{7826f12f-562e-41c3-832a-ae4dc94c5673}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:27:58</creation>
+                  <modification>2023-04-13T12:34:13</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <resourcetype library="$INSTALL\models\generic.ism" type="generic" name="P2" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{76d3f7f7-019c-4cad-acc5-2cfaa2c3987c}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:28:12</creation>
+                  <modification>2023-04-06T10:28:12</modification>
+               </description>
+               <scheduler strategy="TDMA" offset="0 us" cycle="20 ms" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="true" order="0" coreaffinity="1" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{bdf1b6fe-b6db-4da1-9e2e-bdf0bb6ffaa9}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" tdmaperiod="20 ms" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-13T11:43:42</creation>
+                     <modification>2023-04-13T11:43:42</modification>
+                  </description>
+                  <scheduletable>
+                     <schedulable order="0" uid="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard" slot="20 ms" />
+                  </scheduletable>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="DashBoard" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="20 ms" uuid="{42716f03-cfc4-44bb-bb0f-aea41935f23c}" name="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard" deadline="0 us" slot="0 us" bcet="20 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-06T10:32:38</creation>
+                           <modification>2023-04-06T10:32:38</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="10 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{8b5452f9-32e3-4112-ba8b-e2009229de4c}" name="P2" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-06T10:28:12</creation>
+               <modification>2023-04-14T11:46:03</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{150ea2fd-38d9-42c9-b04d-3be26e775cc6}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="2" pAllowPassiveToActive="1" base="0x200" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{c2a982fc-cfa7-4b31-82d7-7be61918ab39}" name="FLEX" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T13:14:35</creation>
+                  <modification>2023-04-14T13:14:35</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{ebac2344-4a1b-49b4-9e08-b7d8c8eef7e4}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T13:14:35</creation>
+                     <modification>2023-04-14T13:14:35</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="2" jitter="0 us" wcet="24.036 us" uuid="{a88a8bd1-3920-4fed-9efa-b0db6c591104}" name="SYNC" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:17:38</creation>
+                        <modification>2023-04-14T13:17:38</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{b7187b03-bddf-4602-98b4-c7b738d742bd}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T11:42:46</creation>
+                  <modification>2023-04-13T11:42:46</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:P2|Clk:P2" uuid="{c176a38f-2003-4686-95ee-2dea28496114}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-06T10:28:12</creation>
+                  <modification>2023-04-13T12:34:16</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <resourcetype library="$INSTALL\models\generic.ism" type="generic" name="P3" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{12c8ec6d-5ff9-4ad6-8a9e-3cee516f7ada}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T12:43:37</creation>
+                  <modification>2023-04-13T12:43:37</modification>
+               </description>
+               <scheduler strategy="TDMA" offset="0 us" cycle="99 ms" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{4aa13388-8370-4992-987a-c7e2b82ed8bc}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" tdmaperiod="99 ms" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-13T12:46:59</creation>
+                     <modification>2023-04-13T12:46:59</modification>
+                  </description>
+                  <scheduletable>
+                     <schedulable order="0" uid="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" slot="3 ms" />
+                     <schedulable order="1" uid="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" slot="1 ms" />
+                     <schedulable order="2" uid="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" slot="30 ms" />
+                     <schedulable order="3" uid="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" slot="65 ms" />
+                  </scheduletable>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Gyro" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="3 ms" uuid="{a3a4510e-256d-4e0a-b180-8bbd53852ff1}" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" deadline="0 us" slot="0 us" bcet="3 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:45:51</creation>
+                           <modification>2023-04-13T12:45:51</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="1.5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Motion_p" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="65 ms" uuid="{eb7dbee4-dfce-4043-a10b-f6300f6552ba}" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" deadline="0 us" slot="0 us" bcet="65 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:45:44</creation>
+                           <modification>2023-04-13T12:45:44</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="32.5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="V_dynamics" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="30 ms" uuid="{c822b41d-4fd9-43e4-9a37-d380a4f5ebd2}" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" deadline="0 us" slot="0 us" bcet="30 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:45:46</creation>
+                           <modification>2023-04-13T12:45:46</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="15 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="speed" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="1 ms" uuid="{7c6e4bb1-9482-46a5-8587-4a6a05643f2b}" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" deadline="0 us" slot="0 us" bcet="1 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:45:24</creation>
+                           <modification>2023-04-13T12:45:24</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="500 us" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{1d6c6d5f-94b2-4bf5-af2f-64586e6b2011}" name="P3" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T12:43:37</creation>
+               <modification>2023-04-14T11:46:03</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{5baf6cf1-a96a-41f8-9e09-2ae492b98bf1}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="3" pAllowPassiveToActive="1" base="0x300" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{42b2a6c3-2504-417d-bbbe-226ae16a4efa}" name="FLEX" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T13:22:41</creation>
+                  <modification>2023-04-14T13:22:41</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{ec989da8-18c9-456c-9c89-76050cabe74e}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T13:22:41</creation>
+                     <modification>2023-04-14T13:22:41</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="3" jitter="0 us" wcet="24.036 us" uuid="{e2ff1ee5-c792-4bb4-a784-d6d2726cf044}" name="SYNC" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:23:47</creation>
+                        <modification>2023-04-14T13:23:47</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="10" pAllowPassiveToActive="1" base="0x900" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="false" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="false" uuid="{e8b3dc61-f8f3-401c-b7b1-a5840dcafc61}" name="FLEX3" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T14:51:25</creation>
+                  <modification>2023-04-14T14:51:48</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{798f7fd7-6213-434a-8d0c-bf7b1eecf240}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T14:51:25</creation>
+                     <modification>2023-04-14T14:51:25</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="10" jitter="0 us" wcet="24.036 us" uuid="{7194a5af-4f76-40db-bda7-4587632abba4}" name="SYNC3" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T14:51:32</creation>
+                        <modification>2023-04-14T14:51:32</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+                  <busmessage channel="0" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="4" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="94" jitter="0 us" wcet="21 us" uuid="{f97a5b69-f36e-4529-86f4-a1b0d396e06c}" name="Motion_Steer_0" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="11.982 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:52:22</creation>
+                        <modification>2023-04-14T13:52:22</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{73fe8b43-8637-4916-86c8-cba6eea1b80c}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T12:43:37</creation>
+                  <modification>2023-04-13T12:43:37</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:P3|Clk:P3" uuid="{9fe9eb5c-dd15-43fd-9336-4ff30c378bf4}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T12:43:37</creation>
+                  <modification>2023-04-13T12:43:40</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <resourcetype library="$INSTALL\models\generic.ism" type="generic" name="P4" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{e4ba2d70-802a-4f16-a36f-cc3a62170dcc}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T12:58:59</creation>
+                  <modification>2023-04-13T12:58:59</modification>
+               </description>
+               <scheduler strategy="TDMA" offset="0 us" cycle="59 ms" allowed_strategies="67125279" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{e6bedcbe-a9a1-4c82-8dc1-340d869dfc36}" allowed_types="4294967295" timeslice="10 ms" name="DefaultScheduler" tdmaperiod="59 ms" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-13T13:00:11</creation>
+                     <modification>2023-04-13T13:00:11</modification>
+                  </description>
+                  <scheduletable>
+                     <schedulable order="0" uid="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" slot="2 ms" />
+                     <schedulable order="1" uid="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" slot="55 ms" />
+                     <schedulable order="2" uid="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" slot="2 ms" />
+                  </scheduletable>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Departure_detection" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="55 ms" uuid="{60e1c990-39f8-4503-8fcc-599dbf0199cf}" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" deadline="0 us" slot="0 us" bcet="55 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:59:11</creation>
+                           <modification>2023-04-13T12:59:11</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="27.5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Steering_input" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="2 ms" uuid="{12d3fba0-916c-45b6-9154-c16167df99cd}" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" deadline="0 us" slot="0 us" bcet="2 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:59:06</creation>
+                           <modification>2023-04-13T12:59:06</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="1 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" idletask="0" name="Warning" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="2 ms" uuid="{3b56a160-dba4-4180-b227-ed99c3c09376}" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" deadline="0 us" slot="0 us" bcet="2 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T12:59:09</creation>
+                           <modification>2023-04-13T12:59:09</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="1 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{0883ef84-3c69-41bd-8ea0-a21b09c71736}" name="P4" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T12:58:59</creation>
+               <modification>2023-04-14T11:46:03</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{ad0f8230-9d3d-4de8-a44e-76f69d55a94f}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="4" pAllowPassiveToActive="1" base="0x400" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{a6cb0c45-1a60-4cce-9789-9597cdd44366}" name="FLEX" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T13:29:56</creation>
+                  <modification>2023-04-14T13:29:56</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{71a27e9d-9ba5-4e6b-8eaf-173bdc8ee601}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T13:29:56</creation>
+                     <modification>2023-04-14T13:29:56</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="4" jitter="0 us" wcet="24.036 us" uuid="{2fed72b7-ea4a-42e3-b29f-b8d314478b08}" name="SYNC" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:32:57</creation>
+                        <modification>2023-04-14T13:32:57</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="7" pAllowPassiveToActive="1" base="0x700" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="false" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="false" uuid="{ae191c4b-0a41-4164-8cd1-810a3756cf9a}" name="FLEX2" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T14:19:44</creation>
+                  <modification>2023-04-14T14:19:44</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{c9165afe-2b81-48a9-a2f7-f3c8936a693b}" allowed_types="4294967295" timeslice="10 ms" name="FLEX2" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T14:19:44</creation>
+                     <modification>2023-04-14T14:19:44</modification>
+                  </description>
+                  <busmessage channel="0" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="2" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="98" jitter="0 us" wcet="21 us" uuid="{bfeda4d5-f106-40c0-a6da-227fdfa0f3c1}" name="Depart_Steering_0" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="9.985 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T14:16:06</creation>
+                        <modification>2023-04-14T14:16:06</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="7" jitter="0 us" wcet="24.036 us" uuid="{2e04e433-9669-4cd6-bcd4-903508d87017}" name="SYNC2" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T14:20:42</creation>
+                        <modification>2023-04-14T14:20:42</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{12c61874-8140-4557-bfbb-3e77a0bbea2d}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T12:58:59</creation>
+                  <modification>2023-04-13T12:58:59</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:P4|Clk:P4" uuid="{a9ca278c-7082-4b03-a2fc-fbdc11e2a928}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T12:58:59</creation>
+                  <modification>2023-04-13T12:59:02</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <resourcetype library="$INSTALL\models\generic-osek.ism" type="generic-osek" name="P5" >
+         <clock period="1 ns" />
+         <rtos>
+            <processes exclusive="false" preemptFlag="true" exactness="50" xcoreisrs="false" isrFlag="true" maximum="99" />
+            <stack default="1024" />
+            <scheduler strategy="Priority" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="0" priority="1" type="preemptive" jitter="0 us" wcet="0 us" uuid="{d62b27a9-5c07-4f1a-a031-3333dc0b39af}" allowed_types="4294967295" timeslice="10 ms" name="ISRScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T13:07:26</creation>
+                  <modification>2023-04-13T13:07:26</modification>
+               </description>
+               <scheduler strategy="OSEK" offset="0 us" cycle="0 us" allowed_strategies="64" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="1" priority="0" type="preemptive" jitter="0 us" wcet="0 us" uuid="{27b9eada-cc31-46b9-942c-bc2f862ba378}" allowed_types="1" timeslice="10 ms" name="DefaultScheduler" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-13T13:09:15</creation>
+                     <modification>2023-04-13T13:09:15</modification>
+                  </description>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" type="osek" idletask="0" name="random_on" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="0" extendedtask="0" jitter="0 us" wcet="3 ms" uuid="{b41b2f48-0fe2-4de5-a43e-250b9245e214}" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" deadline="0 us" slot="0 us" bcet="3 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T13:07:31</creation>
+                           <modification>2023-04-13T13:07:31</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="1.5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" type="osek" idletask="0" name="steering_assistent" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="1" extendedtask="0" jitter="0 us" wcet="35 ms" uuid="{95aa6e27-a5b6-4e22-86ef-e978954f59b6}" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" deadline="0 us" slot="0 us" bcet="35 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T13:07:37</creation>
+                           <modification>2023-04-13T13:07:37</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="17.5 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+                  <process syncevents="" activations="1" isr="0" xcoreisr="" type="osek" idletask="0" name="SteeringOutout" preemptable="1" resource="" stack_limit="1024" init="0" >
+                     <instance offset="0 us" cycle="0 us" period="0 us" blockingtime="0 us" scheduleafterrunnable="0" order="0" coreaffinity="1" priority="2" extendedtask="0" jitter="0 us" wcet="6 ms" uuid="{0f780e24-8760-4640-9e38-69cd2b9abdee}" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" deadline="0 us" slot="0 us" bcet="6 ms" >
+                        <description>
+                           <comment></comment>
+                           <creation>2023-04-13T13:07:35</creation>
+                           <modification>2023-04-13T13:07:35</modification>
+                        </description>
+                        <simulationreplacement loadtype="Wcet" mean="0 us" sigma="3 ms" >
+                           <distribution>
+                              <entry timevalue="0 us" count="1" />
+                           </distribution>
+                        </simulationreplacement>
+                     </instance>
+                  </process>
+               </scheduler>
+            </scheduler>
+         </rtos>
+         <compiler path="" optimization="0" type="" />
+         <instance uuid="{41573cba-67a0-4298-adbe-aca48fb860da}" name="P5" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T13:07:25</creation>
+               <modification>2023-04-14T11:46:03</modification>
+               <targetcpu></targetcpu>
+            </description>
+            <cores>
+               <support>false</support>
+               <editable>false</editable>
+               <physical>1</physical>
+               <logical>1</logical>
+               <memory>uma</memory>
+               <core uuid="{97266acc-3b33-49af-a292-43ae23a2d092}" name="Core 0" />
+            </cores>
+            <ipcobjects/>
+            <triggermodel>
+               <tokens/>
+            </triggermodel>
+            <references/>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="6" pAllowPassiveToActive="1" base="0x600" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{a460bcaf-2f28-453d-a2d5-efb2688eb114}" name="FLEX" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T13:52:52</creation>
+                  <modification>2023-04-14T13:52:52</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{4d3c61de-d1ce-4f8d-8b45-5e6c80e4e66a}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T13:52:52</creation>
+                     <modification>2023-04-14T13:52:52</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="2" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="6" jitter="0 us" wcet="24.036 us" uuid="{e820632c-86d1-434b-93bf-2f8ad9c108d5}" name="SYNC2" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T13:52:56</creation>
+                        <modification>2023-04-14T13:52:56</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <peripheral pAllowHaltDueToClock="false" pKeySlotId="9" pAllowPassiveToActive="1" base="0x800" pdListenTimeOut="401202" pSingleSlotEnabled="false" pKeySlotUsedForSync="true" fabric="25" pRateCorrectionOut="601" pdMaxDrift="601" coldStarter="false" pLatestTx="243" pdMicrotick="0.025" pKeySlotUsedForStartup="true" uuid="{b4171ed9-1620-4865-81be-a3de714c4fe0}" name="FLEX3" pOffsetCorrectionOut="261" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-14T14:49:02</creation>
+                  <modification>2023-04-14T14:49:34</modification>
+                  <targetperipheral></targetperipheral>
+               </description>
+               <scheduler strategy="FlexRay" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" propagatedPriorities="false" order="0" coreaffinity="" priority="1" type="run-to-completi" jitter="0 us" wcet="0 us" uuid="{e43bc61d-0957-418e-b724-35344280c727}" allowed_types="4294967295" timeslice="10 ms" name="FlexRayMessages" deadline="0 us" slot="0 us" bcet="0 us" >
+                  <description>
+                     <comment></comment>
+                     <creation>2023-04-14T14:49:02</creation>
+                     <modification>2023-04-14T14:49:02</modification>
+                  </description>
+                  <busmessage channel="2" offset="0 us" cycle="0 us" allowed_strategies="4294967295" inversepriority="false" period="0 us" blockingtime="0 us" payloadSize="0" propagatedPriorities="false" order="0" coreaffinity="" priority="1" slotNumber="9" jitter="0 us" wcet="24.036 us" uuid="{c5aff9f7-f6db-4432-8d72-6c83088e5ea4}" name="SYNC3" allowed_types="4294967295" timeslice="10 ms" deadline="0 us" cycleRepetition="1" baseCycle="0" slot="0 us" bcet="23.964 us" >
+                     <description>
+                        <comment></comment>
+                        <creation>2023-04-14T14:49:11</creation>
+                        <modification>2023-04-14T14:49:11</modification>
+                     </description>
+                     <events>
+                        <event type="4" >start</event>
+                        <event type="4" >stop</event>
+                     </events>
+                  </busmessage>
+               </scheduler>
+            </peripheral>
+            <segmentmap uuid="{4017caff-ab02-440a-bcce-274404d6a8a4}" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T13:09:15</creation>
+                  <modification>2023-04-13T13:09:15</modification>
+               </description>
+               <segment flags="0x122" base="0x1000000" size="0x0" sections="data:bss:.bss:stack:heap" pages="1" name="ram" />
+               <segment flags="0x113" base="0x2000000" size="0x0" sections="text" pages="1" name="rom" />
+            </segmentmap>
+            <clock gran_unit="ns" range_value="1" start_unit="us" gran_value="1" drift_value="0" range_unit="s" id="|P:new project|RI:P5|Clk:P5" uuid="{1370b3e3-aa23-441e-be06-f4723ad3bdb6}" start_value="0" >
+               <description>
+                  <comment></comment>
+                  <creation>2023-04-13T13:07:25</creation>
+                  <modification>2023-04-13T13:07:28</modification>
+               </description>
+               <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+            </clock>
+            <specsettings>
+               <options cc="none" rtos="none" warn="1" additionalcflags="" std="ISO C99" PrependSpecSettingsFlag="0" />
+            </specsettings>
+         </instance>
+      </resourcetype>
+      <peripheral gSyncNodeMax="10" gMacroPerCycle="5000" speed="f10MBit" base="0x0" gColdstartAttempts="31" gdDynamicSlotIdlePhase="1" gPayloadLengthStatic="8" fabric="11" gdStaticSlot="34" gdNit="100" gdMinislotActionPointOffset="3" gMaxWithoutClockCorrectionFatal="6" gMaxWithoutClockCorrectionPassive="3" gdMacrotick="1" uuid="{60bf4903-48f4-4e0c-ab5c-528d8b374603}" gdTSSTransmitter="15" gdMiniSlot="7" name="FLEXRAY" gNumberOfStaticSlots="89" gdActionPointOffset="3" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T13:02:46</creation>
+            <modification>2023-04-14T13:02:46</modification>
+            <targetperipheral></targetperipheral>
+         </description>
+         <clock gran_unit="ns" range_value="0" start_unit="us" gran_value="10" drift_value="0" range_unit="us" id="|P:new project|Prp:FLEXRAY|Clk:FlexRayBusClock" uuid="{1065804c-45fd-4647-9e89-9fe8815ae425}" start_value="0" >
+            <description>
+               <comment></comment>
+               <creation>2023-04-14T13:02:46</creation>
+               <modification>2023-04-14T13:02:46</modification>
+            </description>
+            <start firstMax="0 us" firstMin="0 us" first="0 us" randomStart="false" />
+         </clock>
+      </peripheral>
+   </allocation>
+   <mapping>
+      <map>
+         <source>|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking</source>
+         <target>|P:new project|RI:P1</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking</source>
+         <target>|P:new project|RI:P1</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera</source>
+         <target>|P:new project|RI:P1</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing</source>
+         <target>|P:new project|RI:P1</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard</source>
+         <target>|P:new project|RI:P2</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro</source>
+         <target>|P:new project|RI:P3</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p</source>
+         <target>|P:new project|RI:P3</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics</source>
+         <target>|P:new project|RI:P3</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed</source>
+         <target>|P:new project|RI:P3</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection</source>
+         <target>|P:new project|RI:P4</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input</source>
+         <target>|P:new project|RI:P4</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning</source>
+         <target>|P:new project|RI:P4</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on</source>
+         <target>|P:new project|RI:P5</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent</source>
+         <target>|P:new project|RI:P5</target>
+      </map>
+      <map>
+         <source>|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout</source>
+         <target>|P:new project|RI:P5</target>
+      </map>
+      <connection>
+         <target>|P:new project|Prp:FLEXRAY|Prt:Channel A</target>
+         <connect>|P:new project|RI:P1|Prp:FLEX|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P2|Prp:FLEX|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P3|Prp:FLEX|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P4|Prp:FLEX|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P5|Prp:FLEX|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P4|Prp:FLEX2|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P5|Prp:FLEX3|Prt:Channel A</connect>
+         <connect>|P:new project|RI:P3|Prp:FLEX3|Prt:Channel A</connect>
+      </connection>
+      <connection>
+         <target>|P:new project|Prp:FLEXRAY|Prt:Channel B</target>
+         <connect>|P:new project|RI:P1|Prp:FLEX|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P2|Prp:FLEX|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P3|Prp:FLEX|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P4|Prp:FLEX|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P5|Prp:FLEX|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P4|Prp:FLEX2|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P5|Prp:FLEX3|Prt:Channel B</connect>
+         <connect>|P:new project|RI:P3|Prp:FLEX3|Prt:Channel B</connect>
+      </connection>
+   </mapping>
+   <components/>
+   <estimationoverride/>
+   <clockcounter/>
+   <stimulation>
+      <scenario uuid="{c9de2cf4-3468-4672-ac09-1fa1e28deb6d}" name="combined" default="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T19:49:22</creation>
+            <modification>2023-04-13T19:56:38</modification>
+         </description>
+         <description></description>
+         <generator clock="|P:new project|RI:P1|Clk:P1" type="peripheral" uuid="{ed9af089-f02a-49e2-a628-98ed30ac79e9}" id="1" >
+            <process name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+            <time period="86.5 ms" periodic="1" iterations="0" first="0 us" relative="false" />
+            <random param1="0 us" param2="0 us" type="None" param3="0 us" param4="0 us" />
+            <limitation minSeparationTime="0 us" />
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T19:49:24</creation>
+               <modification>2023-04-14T11:46:03</modification>
+            </description>
+            <loss probability="0" />
+         </generator>
+         <generator clock="|P:new project|RI:P3|Clk:P3" type="peripheral" uuid="{15a23558-b832-4a47-b3cd-4066e89425c2}" id="2" >
+            <process name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" />
+            <time period="10 ms" periodic="1" iterations="0" first="0 us" relative="false" />
+            <random param1="0 us" param2="0 us" type="None" param3="0 us" param4="0 us" />
+            <limitation minSeparationTime="0 us" />
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T19:49:43</creation>
+               <modification>2023-04-14T11:46:03</modification>
+            </description>
+            <loss probability="0" />
+         </generator>
+         <generator clock="|P:new project|RI:P4|Clk:P4" type="peripheral" uuid="{d10b8db4-e535-42e0-bb11-33b484943238}" id="3" >
+            <process name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" />
+            <time period="5 ms" periodic="1" iterations="0" first="0 us" relative="false" />
+            <random param1="0 us" param2="0 us" type="None" param3="0 us" param4="0 us" />
+            <limitation minSeparationTime="0 us" />
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T19:54:17</creation>
+               <modification>2023-04-14T11:46:03</modification>
+            </description>
+            <loss probability="0" />
+         </generator>
+         <generator clock="|P:new project|RI:P5|Clk:P5" type="peripheral" uuid="{ffaf624d-973d-4cb9-a7d6-b1c4d02ac9d8}" id="4" >
+            <process name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" />
+            <time period="100 ms" periodic="1" iterations="0" first="149 ms" relative="false" />
+            <random param1="0 us" param2="100 ms" type="Normal" param3="0 us" param4="0 us" />
+            <limitation minSeparationTime="0 us" />
+            <description>
+               <comment></comment>
+               <creation>2023-04-13T19:55:18</creation>
+               <modification>2023-04-14T11:46:03</modification>
+            </description>
+            <loss probability="0" />
+         </generator>
+      </scenario>
+   </stimulation>
+   <communication/>
+   <synchronization/>
+   <requirements uuid="{ff48902c-5da5-4f0a-91f8-76c49c71a051}" >
+      <eventchain uuid="{15b53777-bf50-4b85-9356-3a1e7d5f35ba}" name="Front_Dash" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T20:43:56</creation>
+            <modification>2023-04-13T20:49:45</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Front_Camera_Image_processing_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Image_processing_DashBoard" />
+            </step>
+            <step node="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard" joins="false" id="2" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{1d7314af-b9e2-4b86-9cc8-61448f902d75}" name="Front_warning" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T20:44:46</creation>
+            <modification>2023-04-13T20:49:40</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Front_Camera_Image_processing_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Image_processing_Motion_p" />
+            </step>
+            <step node="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" joins="false" id="2" streamed="false" >
+               <output outid="3" name="conn_Motion_p_Warning" />
+            </step>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" joins="false" id="3" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{a55559d6-a3f4-4131-8c27-67fb6fb32335}" name="On_Output" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T20:50:29</creation>
+            <modification>2023-04-13T20:50:51</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_random_on_steering_assistent_0" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_steering_assistent_SteeringOutout_0" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" joins="false" id="2" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{51db77f6-cdbc-48b2-8760-980f0d96d486}" name="WarningUpdate" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T21:22:13</creation>
+            <modification>2023-04-13T21:22:25</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Steering_input_Departure_detection_0" />
+            </step>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Departure_detection_Warning_0" />
+            </step>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" joins="false" id="2" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{c47a396d-1969-41c8-8a62-8da89fd872f3}" name="Steering_Frequency" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T21:26:06</creation>
+            <modification>2023-04-13T21:26:14</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" joins="false" id="0" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{0e1f2a04-b04d-4cc7-acf9-34948463f7af}" name="Front_Bracking" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T11:50:54</creation>
+            <modification>2023-04-14T11:50:59</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Front_Camera_Image_processing_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Image_processing_EmergencyBracking_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" joins="false" id="2" streamed="false" >
+               <output outid="3" name="conn_EmergencyBracking_Braking_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" joins="false" id="3" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{af20a78a-ab1f-48c0-873a-2e4e2b3d8623}" name="Car_Steering_Continue" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:12:26</creation>
+            <modification>2023-04-14T12:13:07</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" joins="false" id="0" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{e8653b02-503d-4a19-83f6-aee1ff65964b}" name="SR1_DepartureWarning" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:13:37</creation>
+            <modification>2023-04-14T12:13:58</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps/>
+      </eventchain>
+      <eventchain uuid="{4e72e651-29a7-49f4-b03c-9015b19e3f28}" name="Frame_SteeringOut1" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:26:49</creation>
+            <modification>2023-04-14T12:28:17</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Front_Camera_Image_processing_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Image_processing_Motion_p" />
+            </step>
+            <step node="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" joins="false" id="2" streamed="false" >
+               <output outid="3" name="conn_Motion_p_steering_assistent" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" joins="false" id="3" streamed="false" >
+               <output outid="4" name="conn_steering_assistent_SteeringOutout_0" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" joins="false" id="4" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{36604086-f145-452a-a55b-895b4327f68d}" name="Gyro_steer_output" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:27:55</creation>
+            <modification>2023-04-14T12:30:29</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Gyro_speed_0" />
+            </step>
+            <step node="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_speed_V_dynamics_0" />
+            </step>
+            <step node="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" joins="false" id="2" streamed="false" >
+               <output outid="3" name="conn_V_dynamics_Motion_p" />
+            </step>
+            <step node="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" joins="false" id="3" streamed="false" >
+               <output outid="4" name="conn_Motion_p_steering_assistent" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" joins="false" id="4" streamed="false" >
+               <output outid="5" name="conn_steering_assistent_SteeringOutout_0" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" joins="false" id="5" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{875c2a29-405b-4a05-a9f6-50227bad10f6}" name="Frame_SteeringOut" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:28:01</creation>
+            <modification>2023-04-14T12:28:21</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Front_Camera_Image_processing_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Image_processing_Departure_detection" />
+            </step>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" joins="false" id="2" streamed="false" >
+               <output outid="3" name="conn_Departure_detection_steering_assistent" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" joins="false" id="3" streamed="false" >
+               <output outid="4" name="conn_steering_assistent_SteeringOutout_0" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" joins="false" id="4" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{3603b622-b2a8-48b8-8d3c-180a74cafb15}" name="Steer_Steeroutput" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:31:45</creation>
+            <modification>2023-04-14T12:31:57</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Steering_input_Departure_detection_0" />
+            </step>
+            <step node="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Departure_detection_steering_assistent" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" joins="false" id="2" streamed="false" >
+               <output outid="3" name="conn_steering_assistent_SteeringOutout_0" />
+            </step>
+            <step node="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" joins="false" id="3" streamed="false" />
+         </steps>
+      </eventchain>
+      <eventchain uuid="{86b5c9d7-2db7-4598-8f35-8461d58f0d48}" name="Frame_image" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:42:27</creation>
+            <modification>2023-04-14T12:42:34</modification>
+         </description>
+         <stepnames/>
+         <instancecolors>
+            <instance id="0" color="0xffc86808" />
+            <instance id="1" color="0xffaec808" />
+            <instance id="2" color="0xff35c808" />
+            <instance id="3" color="0xff08c855" />
+            <instance id="4" color="0xff08c2c8" />
+            <instance id="5" color="0xff0848c8" />
+            <instance id="6" color="0xff4108c8" />
+            <instance id="7" color="0xffbb08c8" />
+            <instance id="8" color="0xffc8085b" />
+            <instance id="9" color="0xffc82e08" />
+            <instance id="10" color="0xffc8a808" />
+            <instance id="11" color="0xff6ec808" />
+         </instancecolors>
+         <steps>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" joins="false" id="0" streamed="false" >
+               <output outid="1" name="conn_Front_Camera_Image_processing_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" joins="false" id="1" streamed="false" >
+               <output outid="2" name="conn_Image_processing_EmergencyBracking_0" />
+            </step>
+            <step node="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" joins="false" id="2" streamed="false" />
+         </steps>
+      </eventchain>
+      <requirement target="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" warnmargin="0 us" warnmarginrel="true" bound="]-infty, 10 ms]" type="response_time" uuid="{697ac97a-d3be-4108-a710-aae61a48a84c}" name="response_time" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:46:50</creation>
+            <modification>2023-04-14T12:46:50</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 150 ms]" from="-1" type="event_chain" to="-1" chain="Frame_image" uuid="{52c00f2f-d037-4176-9d2c-9d442f5b5e5a}" name="event_chain_7" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:43:30</creation>
+            <modification>2023-04-14T12:43:30</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 300 ms]" from="-1" type="event_chain" to="-1" chain="Steer_Steeroutput" uuid="{2eec5d98-b841-4cf1-9dac-00c828bb5942}" name="event_chain_6" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:32:46</creation>
+            <modification>2023-04-14T12:32:46</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 300 ms]" from="-1" type="event_chain" to="-1" chain="Gyro_steer_output" uuid="{d8637b14-23fa-4554-a2b6-e9198da2f1ed}" name="event_chain_5" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:31:20</creation>
+            <modification>2023-04-14T12:31:20</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 300 ms]" from="-1" type="event_chain" to="-1" chain="Frame_SteeringOut1" uuid="{d670791f-bc53-4fcd-a8b6-2ef20ccf1024}" name="event_chain_3" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:29:07</creation>
+            <modification>2023-04-14T12:29:07</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 300 ms]" from="-1" type="event_chain" to="-1" chain="Frame_SteeringOut" uuid="{c17aabf6-6ad8-4119-868d-4a11239157b9}" name="event_chain_4" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:33:54</creation>
+            <modification>2023-04-14T12:33:54</modification>
+         </description>
+      </requirement>
+      <requirement trigger_evt_id="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout|Ev:start" warnmargin="0 us" warnmarginrel="true" bound="]-infty, 170 ms]" type="event_timing" start_evt_id="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout|Ev:start" uuid="{a7c49886-e1a8-42f3-90b6-ddafbd3eb73b}" name="SR4" end_evt_id="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout|Ev:start" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:21:58</creation>
+            <modification>2023-04-14T12:22:04</modification>
+         </description>
+      </requirement>
+      <requirement trigger_evt_id="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning|Ev:start" warnmargin="0 us" warnmarginrel="true" bound="]-infty, 170 ms]" type="event_timing" start_evt_id="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning|Ev:start" uuid="{f57b846c-4850-479a-b8dd-115fd7127620}" name="event_timing" end_evt_id="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning|Ev:start" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:18:00</creation>
+            <modification>2023-04-14T12:18:00</modification>
+         </description>
+      </requirement>
+      <requirement trigger_evt_id="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard|Ev:start" warnmargin="0 us" warnmarginrel="true" bound="]-infty, 150 ms]" type="event_timing" start_evt_id="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard|Ev:start" uuid="{97f740d2-dd6c-4ac9-9012-b006396ba033}" name="DashBoardUpdate" end_evt_id="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard|Ev:start" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:11:08</creation>
+            <modification>2023-04-14T12:11:08</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 170 ms[" from="-1" type="event_chain" to="-1" chain="Steering_Frequency" uuid="{a2742a16-053e-4094-b57c-05558d11d509}" name="event_chain_2" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:18:09</creation>
+            <modification>2023-04-14T12:18:09</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 170 ms[" from="-1" type="event_chain" to="-1" chain="WarningUpdate" uuid="{091f4c4b-7b14-4549-8e20-5d2495283a32}" name="event_chain_1" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-13T21:25:32</creation>
+            <modification>2023-04-14T11:46:03</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 300 ms]" from="-1" type="event_chain" to="-1" chain="Front_Dash" uuid="{6a7901b1-eef9-4008-982e-6eca745fb429}" name="event_chain_0" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:37:07</creation>
+            <modification>2023-04-14T12:37:07</modification>
+         </description>
+      </requirement>
+      <requirement instA="1" warnmargin="0 us" instB="0" warnmarginrel="true" bound="]-infty, 80 ms[" from="-1" type="event_chain" to="-1" chain="On_Output" uuid="{5132500e-47cc-4f89-b3f8-5d749c7d6730}" name="event_chain" match="0" visible="true" enabled="true" >
+         <description>
+            <comment></comment>
+            <creation>2023-04-14T12:08:05</creation>
+            <modification>2023-04-14T12:08:05</modification>
+         </description>
+      </requirement>
+   </requirements>
+   <dependencygraph>
+      <dependency name="conn_EmergencyBracking_Braking" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_EmergencyBracking_Braking_0" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Front_Camera_Braking" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_EmergencyBracking" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" orderindex="3" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_EmergencyBracking_0" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Front_Camera_EmergencyBracking" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:EmergencyBracking" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Front_Camera_Image_processing" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Front_Camera_Image_processing_0" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Braking_Image_processing" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Braking" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_Image_Dash" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_Dash" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_Image_Departure" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_Departure" orderindex="3" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_Image_motion" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_motion" orderindex="2" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_DashBoard" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_A_B" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_Dash_DashBoard" >
+         <node name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_Dash" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P2|SI:ISRScheduler|SI:DefaultScheduler|SI:DashBoard" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_AND_planning_Motion_p" >
+         <node name="|P:new project|RI:P3|AND:AND_planning" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_Motion_p" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_V_dynamics_Motion_p" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_motion_Motion_p" >
+         <node name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_motion" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_speed_V_dynamics" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_speed_V_dynamics_0" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_AND_V_dynamics" >
+         <node name="|P:new project|RI:P3|AND:AND_Gyro" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Gyro_speed" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Gyro_speed_0" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Motion_p_Motion_Steer_0" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|Prp:FLEX3|SI:FlexRayMessages|SI:Motion_Steer_0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Gyro_AND" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Gyro" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|AND:AND_Gyro" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_speed_AND" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:speed" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|AND:AND_Gyro" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_V_dynamics_AND_planning" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:V_dynamics" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P3|AND:AND_planning" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_AND_Departure_Departure_detection" >
+         <node name="|P:new project|RI:P4|AND:AND_Departure" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_processing_Departure_detection" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Image_processing" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Steering_input_Departure_detection" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Steering_input_Departure_detection_0" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_Departure_Departure_detection" >
+         <node name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_Departure" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Front_Camera_Warning" >
+         <node name="|P:new project|RI:P1|SI:ISRScheduler|SI:DefaultScheduler|SI:Front_Camera" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Motion_p_Warning" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Steering_input_Warning" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Departure_detection_Warning" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Departure_detection_Warning_0" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Warning" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Departure_detection_Depart_Steering_0" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|Prp:FLEX2|SI:FLEX2|SI:Depart_Steering_0" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Steering_input_AND_Departure" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Steering_input" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|AND:AND_Departure" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Image_Departure_AND_Departure" >
+         <node name="|P:new project|RI:P1|Prp:FLEX|SI:FlexRayMessages|SI:Image_Departure" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P4|AND:AND_Departure" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Motion_p_steering_assistent" >
+         <node name="|P:new project|RI:P3|SI:ISRScheduler|SI:DefaultScheduler|SI:Motion_p" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Departure_detection_steering_assistent" >
+         <node name="|P:new project|RI:P4|SI:ISRScheduler|SI:DefaultScheduler|SI:Departure_detection" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_random_on_steering_assistent" >
+         <node name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_random_on_steering_assistent_0" >
+         <node name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Depart_Steering_0_steering_assistent" >
+         <node name="|P:new project|RI:P4|Prp:FLEX2|SI:FLEX2|SI:Depart_Steering_0" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Motion_Steer_0_steering_assistent" >
+         <node name="|P:new project|RI:P3|Prp:FLEX3|SI:FlexRayMessages|SI:Motion_Steer_0" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_AND_steerngAssist_steering_assistent" >
+         <node name="|P:new project|RI:P5|AND:AND_steerngAssist" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_random_on_SteeringOutout" >
+         <node name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_steering_assistent_SteeringOutout" >
+         <node name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" orderindex="0" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_steering_assistent_SteeringOutout_0" >
+         <node name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:steering_assistent" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="dataflow" name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:SteeringOutout" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_random_on_AND_steerngAssist" >
+         <node name="|P:new project|RI:P5|SI:ISRScheduler|SI:DefaultScheduler|SI:random_on" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|AND:AND_steerngAssist" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Depart_Steering_0_AND_steerngAssist" >
+         <node name="|P:new project|RI:P4|Prp:FLEX2|SI:FLEX2|SI:Depart_Steering_0" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|AND:AND_steerngAssist" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+      <dependency name="conn_Motion_Steer_0_AND_steerngAssist" >
+         <node name="|P:new project|RI:P3|Prp:FLEX3|SI:FlexRayMessages|SI:Motion_Steer_0" />
+         <activates activates="false" consumenum="1" queuelength="4" overwrite="true" recordnum="0" type="activation" name="|P:new project|RI:P5|AND:AND_steerngAssist" orderindex="1" flowtype="event" >
+            <delay bestcase="0 us" worstcase="0 us" >
+               <simulationreplacement delaytype="None" mean="0 us" sigma="0 us" >
+                  <distribution>
+                     <entry timevalue="0 us" count="1" />
+                  </distribution>
+               </simulationreplacement>
+            </delay>
+         </activates>
+      </dependency>
+   </dependencygraph>
+   <report>
+      <types csv="true" ipr="false" cvr="false" html="true" />
+      <flags requirementhistogram="false" cpu="true" flexraymessage="true" requirementtime="false" requirement="false" function="true" transfercounter="true" functionhistogram="true" ecreqnettime="false" process="true" waitendsexecution="false" calltree="false" processhistogram="true" functiontime="false" canmessage="true" />
+      <timerange end="inf" start="0 us" enabled="false" />
+      <splitevent name="INCHRON_REPORT_SPLIT" enabled="false" />
+      <functionalcorrectnessevent name="INCHRON_FUNCTIONAL_CORRECT" enabled="false" />
+      <name></name>
+      <dir>report</dir>
+      <template>builtin</template>
+      <maxcalldepth>100</maxcalldepth>
+      <exclude/>
+      <hiddenprocesses></hiddenprocesses>
+   </report>
+   <optsettings simtime="500 ms" evaluation="chronVAL" >
+      <algorithm name="chronOPT" />
+      <parameter key="lengthTabuList" value="25" />
+      <parameter key="maxNeighborhood" value="5" />
+      <objective target="|P:new project" priority="0" type="1" />
+      <objective target="|P:new project" priority="1" type="3" />
+      <objective target="|P:new project" priority="2" type="4" />
+      <freedom isactive="true" target="|P:new project" type="0" />
+      <freedom isactive="true" target="|P:new project" type="1" />
+      <haltconditions haltnoimprovement="50" rankbelow="1" iterations="200" haltnoimprovefor="true" haltafter="true" haltrankbelow="true" />
+   </optsettings>
+   <toolsettings>
+      <viewprofile active="true" name="default" >
+         <setting type="EnvironmentControl" >
+            <visible value="false" />
+         </setting>
+         <setting type="ProcessStateView" >
+            <visible value="true" />
+            <diagram height="86" showdetails="false" name="Load:Core1:Core1" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <diagram height="86" showdetails="false" name="Load:Core 0:Core1" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <diagram height="86" showdetails="false" name="Load:Core 1:Core1" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <diagram height="86" showdetails="false" name="Load:Core2:Core2" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <diagram height="86" showdetails="false" name="Load:Core 0:Core2" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <diagram height="86" showdetails="false" name="Load:Core 1:Core2" visible="false" >
+               <granularity value="1.25 ms" />
+               <smoothing value="4" />
+            </diagram>
+            <autoDiagramHeight value="true" />
+            <diagram height="86" showdetails="false" name="A:Core1" visible="true" />
+            <diagram height="86" showdetails="false" name="B:Core2" visible="true" />
+            <diagram height="86" showdetails="false" name="CAN:CAN" visible="true" />
+            <eventchains/>
+         </setting>
+         <setting type="EventChainVisibility" >
+            <visible value="false" />
+         </setting>
+      </viewprofile>
+      <setting type="SimulatorWindow" >
+         <window width="1824" x="-8" y="23" height="1162" fullscreen="0" maximized="1" />
+         <checkStack value="false" />
+         <checkTiming value="false" />
+         <checkNesting value="false" />
+         <checkRecursion value="false" />
+         <checkRTOSFail value="false" />
+         <checkAssertFail value="false" />
+         <checkRequirementFail value="false" />
+         <breakAt value="false" />
+         <runFor value="false" time="" />
+         <breakEvent value="false" />
+         <viewsmaximized value="false" />
+         <referenceCursors num="1" >
+            <cursor id="0" pos="4 ms" />
+         </referenceCursors>
+      </setting>
+      <setting type="Editor" >
+         <TreeViewFoldingState>
+            <entry iscollapsed="false" key="{bfeda4d5-f106-40c0-a6da-227fdfa0f3c1}" />
+            <entry iscollapsed="false" key="{b1344a52-482d-46d6-8861-8b6ef0953be1}" />
+            <entry iscollapsed="false" key="{71f5b673-ba56-45c6-a626-f30f839d9529}" />
+            <entry iscollapsed="false" key="{35a3ecff-9612-4fd6-88b9-8833a1c38304}" />
+            <entry iscollapsed="false" key="{f97a5b69-f36e-4529-86f4-a1b0d396e06c}" />
+            <entry iscollapsed="false" key="{0883ef84-3c69-41bd-8ea0-a21b09c71736}/Peripherals" />
+            <entry iscollapsed="false" key="{e09c2f2f-9be1-483b-9567-5523504b89e0}/Buses" />
+            <entry iscollapsed="false" key="{e09c2f2f-9be1-483b-9567-5523504b89e0}/EventChains" />
+            <entry iscollapsed="false" key="{1d6c6d5f-94b2-4bf5-af2f-64586e6b2011}/Peripherals" />
+            <entry iscollapsed="false" key="{8b5452f9-32e3-4112-ba8b-e2009229de4c}/Peripherals" />
+            <entry iscollapsed="false" key="{eedae9bf-4fcf-4553-91fa-77de4b0cfdb4}/Peripherals" />
+            <entry iscollapsed="false" key="{41573cba-67a0-4298-adbe-aca48fb860da}/Peripherals" />
+         </TreeViewFoldingState>
+      </setting>
+      <setting type="EventSpectrumPlot" >
+         <window width="1000" x="40" y="40" height="800" fullscreen="0" maximized="0" />
+      </setting>
+      <setting type="ResponseTimeCompositionWindow" >
+         <window width="1824" x="-8" y="23" height="1162" fullscreen="0" maximized="0" />
+      </setting>
+   </toolsettings>
+</cs2:chronsimproject>
